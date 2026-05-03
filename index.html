@@ -1,0 +1,1142 @@
+<!--
+  Smart Resource Hub
+  Copyright © 2026 Bett Emanuel — https://bett.website
+  All rights reserved.
+-->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Resource Hub | Kenya CBC & CBE Materials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── THEME VARIABLES ── */
+:root,[data-theme="dark"]{
+  --bg:#0b0f1a;
+  --bg2:#111827;
+  --bg3:#1a2235;
+  --surf:#161e2e;
+  --border:#1f2d45;
+  --border2:#263550;
+  --text:#e8f0ff;
+  --text2:#7a90b8;
+  --text3:#3d4f72;
+  --accent:#3b82f6;
+  --accent2:#1d4ed8;
+  --gold:#f59e0b;
+  --gold2:#d97706;
+  --green:#10b981;
+  --green2:#059669;
+  --red:#ef4444;
+  --toggle-bg:#1a2235;
+  --toggle-border:#263550;
+  --toggle-icon:"🌙";
+  --shadow-card:0 4px 24px rgba(0,0,0,.4);
+}
+
+[data-theme="light"]{
+  --bg:#f0f4f8;
+  --bg2:#ffffff;
+  --bg3:#e8edf5;
+  --surf:#ffffff;
+  --border:#dde3ef;
+  --border2:#c5cfe0;
+  --text:#0f172a;
+  --text2:#475569;
+  --text3:#94a3b8;
+  --accent:#2563eb;
+  --accent2:#1d4ed8;
+  --gold:#d97706;
+  --gold2:#b45309;
+  --green:#059669;
+  --green2:#047857;
+  --red:#dc2626;
+  --toggle-bg:#e8edf5;
+  --toggle-border:#c5cfe0;
+  --toggle-icon:"☀️";
+  --shadow-card:0 2px 12px rgba(0,0,0,.08);
+}
+
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);font-size:14px;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--toggle-bg);border:1px solid var(--toggle-border);
+  cursor:pointer;display:grid;place-items:center;font-size:16px;
+  transition:all .2s;flex-shrink:0;
+}
+.theme-toggle:hover{border-color:var(--accent);background:var(--bg3)}
+.theme-toggle::after{content:var(--toggle-icon)}
+
+/* ── HEADER ── */
+header{
+  background:var(--bg2);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:200;
+  transition:background .3s,border-color .3s;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.lm{width:34px;height:34px;background:var(--accent);border-radius:9px;display:grid;place-items:center;color:#fff;font-size:16px;font-weight:800;font-family:'DM Mono',monospace}
+.lt{font-size:15px;font-weight:700;letter-spacing:-.4px;color:var(--text)}
+.ls{font-size:10px;color:var(--text3);font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+.hdr-r{display:flex;align-items:center;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2)}
+.btn-outline{background:none;border:1px solid var(--border2);color:var(--text2)}
+.btn-outline:hover{background:var(--bg3);color:var(--text);border-color:var(--accent)}
+.btn-gold{background:var(--gold);color:#fff;font-weight:700}
+.btn-gold:hover{background:var(--gold2)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green2)}
+.btn-sm{padding:5px 12px;font-size:12px}
+.btn-lg{padding:12px 28px;font-size:15px;font-weight:700;border-radius:10px}
+
+/* ── HERO ── */
+.hero{
+  padding:72px 24px 56px;text-align:center;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(59,130,246,.12) 0%,transparent 70%);
+  border-bottom:1px solid var(--border);
+  transition:background .3s,border-color .3s;
+}
+[data-theme="light"] .hero{
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 70%);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);
+  color:var(--accent);font-size:11.5px;font-weight:700;
+  padding:5px 14px;border-radius:20px;margin-bottom:24px;
+  text-transform:uppercase;letter-spacing:.8px;
+}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:18px;color:var(--text)}
+.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:16px;color:var(--text2);max-width:520px;margin:0 auto 32px;line-height:1.7;font-weight:400}
+.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:40px;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-n{font-size:28px;font-weight:800;font-family:'DM Mono',monospace;color:var(--gold)}
+.hstat-l{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
+
+/* ── MAIN LAYOUT ── */
+.page{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec{padding:56px 0 32px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.sec-title{font-size:22px;font-weight:700;letter-spacing:-.5px;color:var(--text)}
+.sec-sub{font-size:13px;color:var(--text3);font-weight:500}
+
+/* ── FILTERS ── */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.fchip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;transition:all .14s;font-family:inherit}
+.fchip:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,130,246,.06)}
+.fchip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ── RESOURCE GRID ── */
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.res-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .2s;cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--shadow-card)}
+.res-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .2s}
+.res-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+[data-theme="light"] .res-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.res-card:hover::before{opacity:1}
+.res-card.locked{opacity:.8}
+.res-card.locked:hover{transform:none}
+.res-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+.res-icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:18px;flex-shrink:0}
+.res-badges{display:flex;gap:5px;flex-wrap:wrap}
+.badge{padding:2px 8px;border-radius:5px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.badge-free{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.badge-premium{background:rgba(245,158,11,.1);color:var(--gold);border:1px solid rgba(245,158,11,.25)}
+.badge-grade{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+.badge-lock{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+.res-title{font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.35;color:var(--text)}
+.res-desc{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:14px}
+.res-footer{display:flex;align-items:center;justify-content:space-between}
+.res-meta{font-size:11px;color:var(--text3);display:flex;align-items:center;gap:12px}
+.res-meta span{display:flex;align-items:center;gap:4px}
+.dl-btn{padding:5px 13px;border-radius:6px;font-size:11.5px;font-weight:700;border:none;cursor:pointer;font-family:inherit;transition:all .13s}
+.dl-free{background:var(--green);color:#fff}
+.dl-free:hover{background:var(--green2)}
+.dl-locked{background:var(--bg3);color:var(--text3);border:1px solid var(--border);cursor:not-allowed}
+
+/* ── PLANS ── */
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.plan-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:28px 24px;position:relative;transition:all .2s;box-shadow:var(--shadow-card)}
+.plan-card.featured{border-color:var(--gold);box-shadow:0 0 40px rgba(245,158,11,.1)}
+[data-theme="light"] .plan-card.featured{box-shadow:0 4px 24px rgba(217,119,6,.12)}
+.plan-popular{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:10.5px;font-weight:800;padding:3px 14px;border-radius:20px;white-space:nowrap;letter-spacing:.3px}
+.plan-name{font-size:13px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.plan-price{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
+.plan-amt{font-size:36px;font-weight:800;font-family:'DM Mono',monospace;letter-spacing:-1px;color:var(--text)}
+.plan-period{font-size:12px;color:var(--text3)}
+.plan-alt{font-size:11.5px;color:var(--text3);margin-bottom:20px}
+.plan-feats{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:9px}
+.plan-feats li{font-size:13px;color:var(--text2);display:flex;align-items:flex-start;gap:8px}
+.plan-feats li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;margin-top:1px}
+.plan-feats li.no::before{content:'✕';color:var(--text3)}
+.plan-feats li.no{color:var(--text3)}
+
+/* ── AUTH MODAL (for premium downloads) ── */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:32px;max-width:420px;width:calc(100% - 32px);box-shadow:0 24px 80px rgba(0,0,0,.5);transition:background .3s}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.modal-title{font-size:18px;font-weight:700;color:var(--text)}
+.modal-close{background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer;padding:4px;line-height:1}
+.modal-close:hover{color:var(--text)}
+.mpesa-logo{background:#00a651;border-radius:10px;padding:10px 20px;display:inline-flex;align-items:center;gap:8px;margin-bottom:20px}
+.mpesa-logo span:first-child{color:#fff;font-size:15px;font-weight:800;font-family:'DM Mono',monospace}
+.mpesa-logo span:last-child{color:#fff;font-size:11px;opacity:.8}
+.form-row{margin-bottom:16px}
+.form-label{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:.5px}
+.form-input{width:100%;padding:10px 14px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:'Sora',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+.form-input:focus{border-color:var(--accent)}
+.form-input::placeholder{color:var(--text3)}
+.plan-summary{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:20px}
+.ps-row{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.ps-row:not(:last-child){margin-bottom:8px}
+.ps-label{color:var(--text2)}
+.ps-val{font-weight:700;color:var(--text)}
+.ps-total{border-top:1px solid var(--border);margin-top:10px;padding-top:10px}
+.ps-total .ps-val{color:var(--gold);font-family:'DM Mono',monospace;font-size:16px}
+.stk-status{display:none;text-align:center;padding:20px}
+.stk-anim{font-size:32px;animation:pulse 1.2s ease-in-out infinite;display:block;margin-bottom:12px}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:.7}}
+.stk-msg{font-size:14px;color:var(--text2);line-height:1.6}
+.stk-phone{color:var(--green);font-weight:700;font-family:'DM Mono',monospace}
+
+/* ── POLL DOTS ── */
+.poll-dots{display:inline-flex;gap:4px;margin-top:12px}
+.poll-dot{width:6px;height:6px;border-radius:50%;background:var(--text3)}
+.poll-dot:nth-child(1){animation:pd 1.2s .0s ease-in-out infinite}
+.poll-dot:nth-child(2){animation:pd 1.2s .2s ease-in-out infinite}
+.poll-dot:nth-child(3){animation:pd 1.2s .4s ease-in-out infinite}
+@keyframes pd{0%,100%{background:var(--text3)}50%{background:var(--green)}}
+
+/* ── HOW IT WORKS ── */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.step{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:24px 20px;transition:background .3s,border-color .3s;box-shadow:var(--shadow-card)}
+.step-n{width:36px;height:36px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);display:grid;place-items:center;font-size:15px;font-weight:800;font-family:'DM Mono',monospace;color:var(--accent);margin-bottom:14px}
+.step-t{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.step-d{font-size:12.5px;color:var(--text2);line-height:1.6}
+
+/* ── SEARCH ── */
+.search-wrap{position:relative;margin-bottom:16px}
+.search-input{width:100%;padding:11px 16px 11px 42px;background:var(--surf);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:'Sora',sans-serif;font-size:14px;outline:none;transition:border-color .15s,background .3s}
+.search-input:focus{border-color:var(--accent)}
+.search-input::placeholder{color:var(--text3)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--text3)}
+
+/* ── SKELETON ── */
+.skeleton{background:linear-gradient(90deg,var(--surf) 25%,var(--bg3) 50%,var(--surf) 75%);background-size:200% 100%;animation:sk 1.5s infinite;border-radius:6px;height:14px;margin-bottom:8px}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:20px}
+
+/* ── EMPTY ── */
+.empty-msg{text-align:center;padding:56px 20px;color:var(--text3)}
+.empty-msg .ei{font-size:40px;margin-bottom:12px}
+
+/* ── SUBSCRIPTION STATUS BANNER ── */
+.sub-banner{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(59,130,246,.08));border:1px solid rgba(16,185,129,.25);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.sb-l{display:flex;align-items:center;gap:10px}
+.sb-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);flex-shrink:0}
+.sb-t{font-size:14px;font-weight:700;color:var(--text)}
+.sb-d{font-size:12px;color:var(--text2)}
+
+/* ── AUTH NOTICE (inline for premium) ── */
+.auth-notice{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.auth-notice-icon{font-size:20px;flex-shrink:0}
+.auth-notice-text{font-size:13px;color:var(--text2);line-height:1.5}
+.auth-notice-text strong{color:var(--text);font-weight:600}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;margin-top:80px;transition:background .3s,border-color .3s}
+.ft{font-size:12.5px;color:var(--text3)}
+.ft a{color:var(--accent);text-decoration:none}
+
+/* ── TOAST ── */
+#tc{position:fixed;top:70px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:6px}
+.t{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:500;box-shadow:0 8px 32px rgba(0,0,0,.3);animation:tin .25s ease;min-width:220px;max-width:320px}
+.t.ok{background:#064e3b;color:#ecfdf5;border-left:3px solid var(--green)}
+.t.err{background:#7f1d1d;color:#fef2f2;border-left:3px solid var(--red)}
+.t.info{background:#1e3a5f;color:#dbeafe;border-left:3px solid var(--accent)}
+[data-theme="light"] .t.ok{background:#d1fae5;color:#064e3b}
+[data-theme="light"] .t.err{background:#fee2e2;color:#7f1d1d}
+[data-theme="light"] .t.info{background:#dbeafe;color:#1e3a5f}
+@keyframes tin{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes tout{to{transform:translateX(110%);opacity:0}}
+
+/* ── SPIN ── */
+.spin{width:18px;height:18px;border:2.5px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ── AUTH MODAL specific ── */
+.auth-tabs{display:flex;gap:0;border:1px solid var(--border2);border-radius:8px;overflow:hidden;margin-bottom:24px}
+.auth-tab{flex:1;padding:9px;background:none;border:none;font-family:inherit;font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;transition:all .15s}
+.auth-tab.active{background:var(--accent);color:#fff}
+
+@media(max-width:640px){
+  .hero{padding:48px 16px 40px}
+  .hero-stats{gap:24px}
+  .page{padding:0 16px}
+  .plans-grid{grid-template-columns:1fr}
+  .hdr-r .btn-outline{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="tc"></div>
+
+<!-- ══════════════════════════════════════════
+     PAYMENT MODAL (M-Pesa STK Push)
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="payModal">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="modal-title">Complete Payment</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div id="payForm">
+      <div class="mpesa-logo">
+        <span>M-PESA</span>
+        <span>Powered by Paynecta</span>
+      </div>
+      <div class="plan-summary">
+        <div class="ps-row"><span class="ps-label">Plan</span><span class="ps-val" id="sumPlan">—</span></div>
+        <div class="ps-row"><span class="ps-label">Duration</span><span class="ps-val" id="sumDur">—</span></div>
+        <div class="ps-row ps-total"><span class="ps-label">Total</span><span class="ps-val" id="sumAmt">—</span></div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">M-Pesa Phone Number</label>
+        <input class="form-input" type="tel" id="payPhone" placeholder="07XX XXX XXX" maxlength="12">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" type="text" id="payName" placeholder="Your full name">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Email (optional — for receipt)</label>
+        <input class="form-input" type="email" id="payEmail" placeholder="you@school.ac.ke">
+      </div>
+      <button class="btn btn-green btn-lg" style="width:100%;justify-content:center" onclick="triggerSTK()" id="stkBtn">
+        📱 Send STK Push
+      </button>
+      <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px">
+        A payment prompt will appear on your phone. Enter your M-Pesa PIN to complete.
+      </p>
+    </div>
+    <div class="stk-status" id="stkStatus">
+      <span class="stk-anim">📱</span>
+      <div class="stk-msg">
+        Check your phone<br>
+        <span class="stk-phone" id="stkPhone">0700 000 000</span><br><br>
+        Enter your M-Pesa PIN to unlock full access.
+        <div class="poll-dots"><div class="poll-dot"></div><div class="poll-dot"></div><div class="poll-dot"></div></div>
+      </div>
+      <p style="font-size:11px;color:var(--text3);margin-top:14px" id="pollMsg">Waiting for payment confirmation…</p>
+      <button class="btn btn-outline" style="margin-top:14px;width:100%;justify-content:center" onclick="resetModal()">Try Again</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SIGN IN MODAL (for premium-only resources)
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="modal-title" id="authModalTitle">Sign in to download</span>
+      <button class="modal-close" onclick="closeAuthModal()">✕</button>
+    </div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tabSignIn" onclick="switchTab('signin')">Sign In</button>
+      <button class="auth-tab" id="tabSignUp" onclick="switchTab('signup')">Create Account</button>
+    </div>
+
+    <!-- Sign in form -->
+    <div id="formSignIn">
+      <div class="form-row">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" id="siEmail" placeholder="you@school.ac.ke">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" id="siPass" placeholder="••••••••">
+      </div>
+      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-bottom:10px" onclick="doSignIn()" id="siBtn">
+        Sign In
+      </button>
+      <button class="btn btn-outline" style="width:100%;justify-content:center;font-size:12px" onclick="doGoogleSignIn()">
+        🔑 Sign in with Google
+      </button>
+    </div>
+
+    <!-- Sign up form -->
+    <div id="formSignUp" style="display:none">
+      <div class="form-row">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" type="text" id="suName" placeholder="Jane Wanjiku">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" id="suEmail" placeholder="you@school.ac.ke">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" id="suPass" placeholder="Min 6 characters">
+      </div>
+      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-bottom:10px" onclick="doSignUp()" id="suBtn">
+        Create Account
+      </button>
+      <button class="btn btn-outline" style="width:100%;justify-content:center;font-size:12px" onclick="doGoogleSignIn()">
+        🔑 Sign up with Google
+      </button>
+    </div>
+
+    <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:14px">
+      Account needed only for premium resources. Free resources download instantly.
+    </p>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="lm">📚</div>
+    <div>
+      <div class="lt">Smart Resource Hub</div>
+      <div class="ls">Kenya CBC · Grades 1–9</div>
+    </div>
+  </div>
+  <div class="hdr-r">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode"></button>
+    <button class="btn btn-outline btn-sm" id="authBtn" onclick="handleAuthBtn()">Sign In</button>
+    <button class="btn btn-gold btn-sm" onclick="openPlan('termly')">⭐ Get Full Access</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📖 CBC-Aligned Resources</div>
+  <h1>Everything a Kenya teacher<br>needs, <span>in one place.</span></h1>
+  <p>Lesson plans, exam papers, schemes of work, rubrics and more — built specifically for Kenya's CBC curriculum, Grade 1 to 9.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <button class="btn btn-primary btn-lg" onclick="goTo('#resources')">Browse Resources</button>
+    <button class="btn btn-gold btn-lg" onclick="goTo('#plans')">View Plans</button>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n" id="statTotal">—</div><div class="hstat-l">Resources</div></div>
+    <div class="hstat"><div class="hstat-n">9</div><div class="hstat-l">Grades</div></div>
+    <div class="hstat"><div class="hstat-n">Ksh 300</div><div class="hstat-l">Per Term</div></div>
+    <div class="hstat"><div class="hstat-n">M-Pesa</div><div class="hstat-l">Payment</div></div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- HOW IT WORKS -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-title">How it works</div></div>
+    <div class="steps">
+      <div class="step"><div class="step-n">01</div><div class="step-t">Browse free resources</div><div class="step-d">Download free resources instantly — no account needed.</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-t">Choose a plan</div><div class="step-d">Pick free, termly, or school license for full access.</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-t">Pay via M-Pesa</div><div class="step-d">STK Push to your phone. Enter PIN — done in seconds.</div></div>
+      <div class="step"><div class="step-n">04</div><div class="step-t">Download &amp; teach</div><div class="step-d">PDF and Word downloads, ready to print or use anywhere.</div></div>
+    </div>
+  </div>
+
+  <!-- PRICING PLANS -->
+  <div class="sec" id="plans">
+    <div class="sec-head">
+      <div class="sec-title">Choose your plan</div>
+      <div class="sec-sub">Free resources need no account · Premium unlocks everything</div>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price"><span class="plan-amt">Ksh 0</span></div>
+        <div class="plan-alt">Forever free · No account required</div>
+        <ul class="plan-feats">
+          <li>5 free resources per grade</li>
+          <li>CBC scale reference cards</li>
+          <li>Sample lesson plan (1 subject)</li>
+          <li>Instant download — no signup</li>
+          <li class="no">Full resource library</li>
+          <li class="no">Exam papers &amp; schemes</li>
+        </ul>
+        <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="goTo('#resources')">Browse Free Resources</button>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-popular">⭐ Most Popular</div>
+        <div class="plan-name" style="color:var(--gold)">Termly</div>
+        <div class="plan-price"><span class="plan-amt" style="color:var(--gold)">Ksh 300</span></div>
+        <div class="plan-alt">per term · ~Ksh 100/month</div>
+        <ul class="plan-feats">
+          <li>Full resource library</li>
+          <li>All grades 1–9</li>
+          <li>Lesson plans, schemes &amp; rubrics</li>
+          <li>Exam papers + marking schemes</li>
+          <li>New resources every week</li>
+          <li class="no">School-wide access</li>
+        </ul>
+        <button class="btn btn-gold btn-lg" style="width:100%;justify-content:center" onclick="openPlan('termly')">Pay Ksh 300 via M-Pesa</button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Annual</div>
+        <div class="plan-price"><span class="plan-amt">Ksh 800</span></div>
+        <div class="plan-alt">per year · save Ksh 100</div>
+        <ul class="plan-feats">
+          <li>Everything in Termly</li>
+          <li>Full year access (3 terms)</li>
+          <li>Holiday assignment packs</li>
+          <li>CBC revision notes per subject</li>
+          <li>Early access to new resources</li>
+          <li class="no">School-wide access</li>
+        </ul>
+        <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="openPlan('annual')">Pay Ksh 800 via M-Pesa</button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">School License</div>
+        <div class="plan-price"><span class="plan-amt">Ksh 2,500</span></div>
+        <div class="plan-alt">per term · all teachers</div>
+        <ul class="plan-feats">
+          <li>Everything in Termly</li>
+          <li>Up to 30 teacher accounts</li>
+          <li>Shared school library</li>
+          <li>Admin dashboard</li>
+          <li>WhatsApp support priority</li>
+          <li>Custom resource requests</li>
+        </ul>
+        <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="openWA()">Contact on WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESOURCE LIBRARY -->
+  <div class="sec" id="resources">
+    <div class="sec-head">
+      <div class="sec-title">Resource Library</div>
+      <div class="sec-sub" id="resCount">Loading resources…</div>
+    </div>
+
+    <!-- Subscription banner (shown when subscribed) -->
+    <div class="sub-banner" id="subBanner" style="display:none">
+      <div class="sb-l">
+        <div class="sb-dot"></div>
+        <div>
+          <div class="sb-t">Full Access Active</div>
+          <div class="sb-d">Your subscription expires <span id="subExpiry">—</span></div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-sm">Manage Plan</button>
+    </div>
+
+    <!-- Auth notice (shown when signed out and premium resources present) -->
+    <div class="auth-notice" id="authNotice" style="display:none">
+      <span class="auth-notice-icon">🔒</span>
+      <div class="auth-notice-text">
+        <strong>Premium resources require a subscription.</strong><br>
+        Free resources below download instantly — no account needed.
+        <button class="btn btn-outline btn-sm" style="margin-left:10px;vertical-align:middle" onclick="openAuthModal('premium')">Sign In / Subscribe</button>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" type="text" placeholder="Search — e.g. 'Grade 4 Math lesson plan'" oninput="filterRes()" id="searchIn">
+    </div>
+
+    <div class="filters" id="gradeFilters">
+      <button class="fchip active" onclick="setFilter('grade','all',this)">All Grades</button>
+      <button class="fchip" onclick="setFilter('grade','1-3',this)">Gr 1–3</button>
+      <button class="fchip" onclick="setFilter('grade','4-6',this)">Gr 4–6</button>
+      <button class="fchip" onclick="setFilter('grade','7-9',this)">Gr 7–9</button>
+    </div>
+    <div class="filters" id="typeFilters" style="margin-bottom:24px">
+      <button class="fchip active" onclick="setFilter('type','all',this)">All Types</button>
+      <button class="fchip" onclick="setFilter('type','lesson',this)">Lesson Plans</button>
+      <button class="fchip" onclick="setFilter('type','exam',this)">Exam Papers</button>
+      <button class="fchip" onclick="setFilter('type','scheme',this)">Schemes</button>
+      <button class="fchip" onclick="setFilter('type','rubric',this)">Rubrics</button>
+      <button class="fchip" onclick="setFilter('type','notes',this)">Revision Notes</button>
+    </div>
+
+    <div class="res-grid" id="resGrid">
+      <!-- Skeleton loading cards -->
+      <div class="skel-card"><div class="skeleton" style="height:40px;width:40px;border-radius:10px;margin-bottom:14px"></div><div class="skeleton" style="width:80%"></div><div class="skeleton" style="width:60%"></div><div class="skeleton" style="width:90%;height:40px;margin-top:8px"></div></div>
+      <div class="skel-card"><div class="skeleton" style="height:40px;width:40px;border-radius:10px;margin-bottom:14px"></div><div class="skeleton" style="width:70%"></div><div class="skeleton" style="width:55%"></div><div class="skeleton" style="width:85%;height:40px;margin-top:8px"></div></div>
+      <div class="skel-card"><div class="skeleton" style="height:40px;width:40px;border-radius:10px;margin-bottom:14px"></div><div class="skeleton" style="width:75%"></div><div class="skeleton" style="width:65%"></div><div class="skeleton" style="width:88%;height:40px;margin-top:8px"></div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="ft">Smart Resource Hub · Built for Kenyan Schools · <a href="https://bett.website">bett.website</a> · <a href="https://wa.me/254704518130">WhatsApp: 0704 518 130</a></div>
+  <div class="ft" style="margin-top:6px">© 2026 Bett Emanuel. All rights reserved.</div>
+</footer>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+// ════════════════════════════════════════════
+// CONFIG
+// ════════════════════════════════════════════
+firebase.initializeApp({
+  apiKey:            "AIzaSyDPZLbDio7OibE-FEXqFF1OdhM0qZc3yII",
+  authDomain:        "divine-treat-450709-b5.firebaseapp.com",
+  databaseURL:       "https://divine-treat-450709-b5-default-rtdb.firebaseio.com",
+  projectId:         "divine-treat-450709-b5",
+  storageBucket:     "divine-treat-450709-b5.firebasestorage.app",
+  messagingSenderId: "866518506476",
+  appId:             "1:866518506476:web:e2d3618b61f88e1f6a3ec9",
+  measurementId:     "G-B82PF7LK3H"
+});
+
+const db   = firebase.firestore();
+const auth = firebase.auth();
+const BACKEND = 'https://cbe-y1zb.onrender.com';
+
+// ════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════
+let allResources  = [];
+let activeFilters = { grade:'all', type:'all' };
+let subscribed    = false;
+let currentUid    = null;
+let currentUser   = null;
+let selectedPlan  = null;
+let paymentId     = null;
+let pollInterval  = null;
+let pendingResourceId = null; // resource to download after auth
+
+// ════════════════════════════════════════════
+// THEME TOGGLE
+// ════════════════════════════════════════════
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  html.dataset.theme = next;
+  localStorage.setItem('cbe-theme', next);
+}
+
+// Restore saved theme
+(function(){
+  const saved = localStorage.getItem('cbe-theme');
+  if (saved) document.documentElement.dataset.theme = saved;
+})();
+
+// ════════════════════════════════════════════
+// AUTH STATE
+// ════════════════════════════════════════════
+auth.onAuthStateChanged(async user => {
+  currentUser = user;
+  currentUid  = user ? user.uid : null;
+  updateAuthBtn();
+  if (user) {
+    await checkSubscription(user.uid);
+  }
+  loadResources();
+});
+
+function updateAuthBtn() {
+  const btn = document.getElementById('authBtn');
+  if (!btn) return;
+  if (currentUser && !currentUser.isAnonymous) {
+    const name = currentUser.displayName || currentUser.email || 'Account';
+    btn.textContent = '👤 ' + name.split(' ')[0];
+    btn.onclick = doSignOut;
+  } else {
+    btn.textContent = 'Sign In';
+    btn.onclick = handleAuthBtn;
+  }
+}
+
+function handleAuthBtn() {
+  openAuthModal();
+}
+
+async function doSignOut() {
+  await auth.signOut();
+  subscribed = false;
+  currentUid = null;
+  currentUser = null;
+  document.getElementById('subBanner').style.display = 'none';
+  renderResources();
+  toast('Signed out', 'info');
+  updateAuthBtn();
+}
+
+// ════════════════════════════════════════════
+// SUBSCRIPTION CHECK
+// ════════════════════════════════════════════
+async function checkSubscription(uid) {
+  try {
+    const res  = await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}`);
+    const data = await res.json();
+    if (data.active) {
+      subscribed = true;
+      showSubBanner(data.expiresAt);
+    }
+  } catch(e) {
+    console.warn('[Sub check]', e.message);
+  }
+}
+
+function showSubBanner(expiresAt) {
+  const banner = document.getElementById('subBanner');
+  if (banner) banner.style.display = 'flex';
+  const exp = new Date(expiresAt);
+  const el  = document.getElementById('subExpiry');
+  if (el) el.textContent = exp.toLocaleDateString('en-KE',{day:'numeric',month:'long',year:'numeric'});
+}
+
+// ════════════════════════════════════════════
+// LOAD RESOURCES
+// ════════════════════════════════════════════
+async function loadResources() {
+  try {
+    const snap = await db.collection('resources').orderBy('createdAt','desc').get();
+    allResources = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    const total = document.getElementById('statTotal');
+    if (total) total.textContent = allResources.length || '0';
+
+    // Show auth notice if there are premium resources and user is not subscribed
+    const hasPremium = allResources.some(r => !r.free);
+    const notice = document.getElementById('authNotice');
+    if (notice) notice.style.display = (hasPremium && !subscribed) ? 'flex' : 'none';
+
+    renderResources();
+  } catch(e) {
+    console.error('[Load resources]', e.message);
+    document.getElementById('resGrid').innerHTML = `
+      <div style="grid-column:1/-1">
+        <div class="empty-msg">
+          <div class="ei">⚠️</div>
+          <p>Could not load resources — please refresh the page.</p>
+        </div>
+      </div>`;
+    document.getElementById('resCount').textContent = 'Could not load resources';
+  }
+}
+
+// ════════════════════════════════════════════
+// RENDER RESOURCES
+// ════════════════════════════════════════════
+// ID → resource object map, rebuilt on each render
+window._resMap = {};
+
+function renderResources() {
+  const q   = (document.getElementById('searchIn')?.value || '').toLowerCase();
+  const { grade, type } = activeFilters;
+
+  const filtered = allResources.filter(r => {
+    const gMatch = grade === 'all' || r.grades === grade || r.grades === '1-9';
+    const tMatch = type  === 'all' || r.type  === type;
+    const qMatch = !q   || (r.title||'').toLowerCase().includes(q) ||
+                           (r.desc||'').toLowerCase().includes(q)  ||
+                           (r.subject||'').toLowerCase().includes(q);
+    return gMatch && tMatch && qMatch;
+  });
+
+  document.getElementById('resCount').textContent =
+    `Showing ${filtered.length} resource${filtered.length !== 1 ? 's' : ''}`;
+
+  if (!filtered.length) {
+    document.getElementById('resGrid').innerHTML = `
+      <div style="grid-column:1/-1">
+        <div class="empty-msg">
+          <div class="ei">${allResources.length ? '🔍' : '📭'}</div>
+          <p>${allResources.length
+            ? 'No resources match your filters.'
+            : 'No resources uploaded yet. Check back soon!'}</p>
+        </div>
+      </div>`;
+    return;
+  }
+
+  // Rebuild lookup map
+  window._resMap = {};
+  filtered.forEach(r => { window._resMap[r.id] = r; });
+
+  document.getElementById('resGrid').innerHTML = filtered.map(r => {
+    // Free: always downloadable. Premium: needs active subscription.
+    const canDl = r.free || subscribed;
+    const icon  = r.icon || '📄';
+    return `
+      <div class="res-card${canDl ? '' : ' locked'}">
+        <div class="res-top">
+          <div class="res-icon" style="background:${r.free
+            ? 'rgba(16,185,129,.12)'
+            : 'rgba(245,158,11,.1)'}">${icon}</div>
+          <div class="res-badges">
+            <span class="badge badge-grade">Gr ${r.grades||'—'}</span>
+            ${r.free
+              ? '<span class="badge badge-free">Free</span>'
+              : '<span class="badge badge-premium">Premium</span>'}
+            ${!canDl ? '<span class="badge badge-lock">🔒</span>' : ''}
+          </div>
+        </div>
+        <div class="res-title">${r.title||'Untitled'}</div>
+        <div class="res-desc">${r.desc||''}</div>
+        <div class="res-footer">
+          <div class="res-meta">
+            ${r.pages  ? `<span>📄 ${r.pages}pp</span>` : ''}
+            ${r.size   ? `<span>💾 ${r.size}</span>`    : ''}
+            ${r.format ? `<span style="background:var(--bg3);padding:1px 6px;border-radius:4px;font-size:10px;color:var(--text2)">${r.format}</span>` : ''}
+          </div>
+          ${r.free
+            ? `<button class="dl-btn dl-free" onclick="downloadFreeById('${r.id}')">⬇ Download</button>`
+            : canDl
+              ? `<button class="dl-btn dl-free" onclick="downloadPremium('${r.id}','${(r.title||'').replace(/'/g,"\\'")}')">⬇ Download</button>`
+              : `<button class="dl-btn" style="background:var(--gold);color:#fff;cursor:pointer" onclick="promptUpgrade('${r.id}')">⭐ Unlock</button>`
+          }
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function setFilter(key, val, el) {
+  activeFilters[key] = val;
+  const group = key === 'grade' ? 'gradeFilters' : 'typeFilters';
+  document.querySelectorAll(`#${group} .fchip`).forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderResources();
+}
+
+function filterRes() { renderResources(); }
+
+// ════════════════════════════════════════════
+// DOWNLOAD — Free resources (no auth needed)
+// Uses fileUrl stored directly in Firestore.
+// No backend call — open the URL immediately.
+// ════════════════════════════════════════════
+function downloadFreeById(resourceId) {
+  const r = window._resMap[resourceId];
+  if (!r) { toast('Resource not found', 'err'); return; }
+  downloadFree(resourceId, r.fileUrl || '', r.title || '');
+}
+
+async function downloadFree(resourceId, fileUrl, title) {
+  // ① Direct fileUrl — rare case (external hosted file, no watermark possible)
+  if (fileUrl && fileUrl.startsWith('http') && !fileUrl.includes('r2.cloudflarestorage')) {
+    window.open(fileUrl, '_blank');
+    toast(`⬇ Downloading: ${(title||'').substring(0,40)}`, 'ok');
+    return;
+  }
+  // ② File is in R2 — backend stamps watermark and streams PDF
+  try {
+    toast('Preparing your branded copy…', 'info');
+
+    // Collect user identity for personalised watermark
+    const downloaderName  = (currentUser && !currentUser.isAnonymous)
+      ? (currentUser.displayName || currentUser.email || '')
+      : '';
+    const downloaderPhone = document.getElementById('payPhone')?.value?.trim() || '';
+
+    const res  = await fetch(`${BACKEND}/api/resources/download-free`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ resourceId, downloaderName, downloaderPhone }),
+    });
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (data.code === 'SUBSCRIPTION_REQUIRED') {
+        toast('This resource requires a subscription', 'info');
+        document.getElementById('plans').scrollIntoView({ behavior:'smooth' });
+        return;
+      }
+      throw new Error(data.error || `Server error ${res.status}`);
+    }
+
+    // Backend streams the PDF directly — create a blob URL and trigger download
+    const blob    = await res.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const a       = document.createElement('a');
+    a.href        = blobUrl;
+    a.download    = (title || 'resource').replace(/[^\w\s-]/g, '') + '.pdf';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(blobUrl); a.remove(); }, 2000);
+    toast(`⬇ Downloaded: ${(title||'').substring(0,40)}`, 'ok');
+
+  } catch(e) {
+    toast('Download failed — please try again or contact support', 'err');
+    console.error('[downloadFree]', e.message);
+  }
+}
+
+// ════════════════════════════════════════════
+// DOWNLOAD — Premium resources (auth + subscription required)
+// ════════════════════════════════════════════
+async function downloadPremium(resourceId, title) {
+  if (!currentUid || (currentUser && currentUser.isAnonymous)) {
+    pendingResourceId = resourceId;
+    openAuthModal('premium');
+    toast('Sign in to download premium resources', 'info');
+    return;
+  }
+  try {
+    toast('Preparing your branded copy…', 'info');
+    const token = await currentUser.getIdToken();
+    const res   = await fetch(`${BACKEND}/api/resources/download`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body:    JSON.stringify({ resourceId }),
+    });
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (data.code === 'SUBSCRIPTION_REQUIRED') {
+        toast('Subscription required — choose a plan below', 'info');
+        document.getElementById('plans').scrollIntoView({ behavior:'smooth' });
+        return;
+      }
+      throw new Error(data.error || `Server error ${res.status}`);
+    }
+
+    // Backend streams the watermarked PDF — trigger blob download
+    const blob    = await res.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const a       = document.createElement('a');
+    a.href        = blobUrl;
+    a.download    = (title || 'resource').replace(/[^\w\s-]/g, '') + '.pdf';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(blobUrl); a.remove(); }, 2000);
+    toast(`⬇ Downloaded: ${(title||'').substring(0,40)}`, 'ok');
+  } catch(e) {
+    toast(`Download failed: ${e.message}`, 'err');
+    console.error('[downloadPremium]', e.message);
+  }
+}
+
+function promptUpgrade(resourceId) {
+  pendingResourceId = resourceId;
+  toast('Subscribe to unlock this premium resource', 'info');
+  document.getElementById('plans').scrollIntoView({ behavior:'smooth' });
+}
+
+// ════════════════════════════════════════════
+// AUTH MODAL
+// ════════════════════════════════════════════
+function openAuthModal(context) {
+  document.getElementById('authModal').classList.add('open');
+  if (context === 'premium') {
+    document.getElementById('authModalTitle').textContent = 'Sign in to download';
+  } else {
+    document.getElementById('authModalTitle').textContent = 'Sign in';
+  }
+}
+
+function closeAuthModal() {
+  document.getElementById('authModal').classList.remove('open');
+  pendingResourceId = null;
+}
+
+function switchTab(tab) {
+  document.getElementById('formSignIn').style.display  = tab === 'signin' ? '' : 'none';
+  document.getElementById('formSignUp').style.display  = tab === 'signup' ? '' : 'none';
+  document.getElementById('tabSignIn').classList.toggle('active', tab === 'signin');
+  document.getElementById('tabSignUp').classList.toggle('active', tab === 'signup');
+}
+
+async function doSignIn() {
+  const email = document.getElementById('siEmail').value.trim();
+  const pass  = document.getElementById('siPass').value;
+  if (!email || !pass) { toast('Enter email and password', 'err'); return; }
+  const btn = document.getElementById('siBtn');
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  try {
+    await auth.signInWithEmailAndPassword(email, pass);
+    closeAuthModal();
+    toast('✅ Signed in!', 'ok');
+  } catch(e) {
+    toast('Sign in failed: ' + e.message.replace('Firebase: ',''), 'err');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Sign In';
+  }
+}
+
+async function doSignUp() {
+  const name  = document.getElementById('suName').value.trim();
+  const email = document.getElementById('suEmail').value.trim();
+  const pass  = document.getElementById('suPass').value;
+  if (!name)  { toast('Enter your name', 'err');  return; }
+  if (!email) { toast('Enter your email', 'err'); return; }
+  if (!pass || pass.length < 6) { toast('Password must be at least 6 characters', 'err'); return; }
+  const btn = document.getElementById('suBtn');
+  btn.disabled = true; btn.textContent = 'Creating account…';
+  try {
+    const cred = await auth.createUserWithEmailAndPassword(email, pass);
+    await cred.user.updateProfile({ displayName: name });
+    closeAuthModal();
+    toast('✅ Account created! Welcome, ' + name.split(' ')[0], 'ok');
+  } catch(e) {
+    toast('Sign up failed: ' + e.message.replace('Firebase: ',''), 'err');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Create Account';
+  }
+}
+
+async function doGoogleSignIn() {
+  try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    await auth.signInWithPopup(provider);
+    closeAuthModal();
+    toast('✅ Signed in with Google!', 'ok');
+  } catch(e) {
+    toast('Google sign in failed: ' + e.message.replace('Firebase: ',''), 'err');
+  }
+}
+
+// ════════════════════════════════════════════
+// PAYMENT MODAL
+// ════════════════════════════════════════════
+const PLANS = {
+  termly: { name:'Termly Access',  dur:'1 Term (4 months)', amt:'Ksh 300',   key:'resource_termly' },
+  annual: { name:'Annual Access',  dur:'1 Year',            amt:'Ksh 800',   key:'resource_annual' },
+  school: { name:'School License', dur:'1 Term',            amt:'Ksh 2,500', key:'resource_school' },
+};
+
+function openPlan(p) {
+  selectedPlan = p;
+  const pl = PLANS[p];
+  document.getElementById('sumPlan').textContent = pl.name;
+  document.getElementById('sumDur').textContent  = pl.dur;
+  document.getElementById('sumAmt').textContent  = pl.amt;
+  document.getElementById('payModal').classList.add('open');
+  document.getElementById('payForm').style.display   = '';
+  document.getElementById('stkStatus').style.display = 'none';
+}
+
+function closeModal() {
+  document.getElementById('payModal').classList.remove('open');
+  stopPolling();
+}
+
+function resetModal() {
+  stopPolling();
+  document.getElementById('payForm').style.display   = '';
+  document.getElementById('stkStatus').style.display = 'none';
+  document.getElementById('stkBtn').disabled = false;
+  document.getElementById('stkBtn').innerHTML = '📱 Send STK Push';
+}
+
+async function triggerSTK() {
+  const phone = document.getElementById('payPhone').value.trim();
+  const name  = document.getElementById('payName').value.trim();
+  if (!phone || phone.length < 9) { toast('Enter a valid phone number', 'err'); return; }
+  if (!name)                       { toast('Enter your full name', 'err');       return; }
+
+  let dp = phone.replace(/\D/g,'');
+  if (dp.startsWith('0')) dp = '254' + dp.substring(1);
+  const formatted = dp.replace(/(\d{3})(\d{3})(\d{3})(\d{3})/,'$1 $2 $3 $4');
+
+  const btn = document.getElementById('stkBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spin" style="width:14px;height:14px;border-width:2px"></div> Sending…';
+
+  try {
+    let uid = currentUid;
+    if (!uid) {
+      const cred = await auth.signInAnonymously();
+      uid = cred.user.uid;
+      currentUid = uid;
+    }
+
+    const res  = await fetch(`${BACKEND}/api/subscriptions/initiate`, {
+      method: 'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({ uid, planKey: PLANS[selectedPlan].key, phone, name }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Initiation failed');
+
+    paymentId = data.paymentId;
+    document.getElementById('payForm').style.display   = 'none';
+    document.getElementById('stkStatus').style.display = 'block';
+    document.getElementById('stkPhone').textContent    = formatted;
+    document.getElementById('pollMsg').textContent     = 'Waiting for payment confirmation…';
+    toast('📱 STK Push sent to ' + phone, 'info');
+    startPolling(uid);
+  } catch(e) {
+    toast('Payment error: ' + e.message, 'err');
+    btn.disabled = false;
+    btn.innerHTML = '📱 Send STK Push';
+  }
+}
+
+function startPolling(uid) {
+  let attempts = 0;
+  const MAX    = 45;
+  pollInterval = setInterval(async () => {
+    attempts++;
+    try {
+      const res  = await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}`);
+      const data = await res.json();
+      if (data.active) {
+        stopPolling();
+        onPaymentSuccess(data);
+        return;
+      }
+    } catch(_) {}
+    if (attempts >= MAX) {
+      stopPolling();
+      document.getElementById('pollMsg').textContent = 'Payment taking longer than expected — check your M-Pesa messages and contact support if needed.';
+      toast('Payment timeout — contact support if you paid', 'info');
+    }
+  }, 4000);
+}
+
+function stopPolling() {
+  if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+}
+
+function onPaymentSuccess(sub) {
+  subscribed = true;
+  closeModal();
+  showSubBanner(sub.expiresAt);
+  document.getElementById('authNotice').style.display = 'none';
+  renderResources();
+  toast('✅ Payment confirmed! Full access unlocked.', 'ok');
+  document.getElementById('resources').scrollIntoView({ behavior:'smooth' });
+}
+
+// ════════════════════════════════════════════
+// UTILITIES
+// ════════════════════════════════════════════
+function openWA() {
+  window.open('https://wa.me/254704518130?text=Hi%20Bett%2C%20I%20am%20interested%20in%20the%20Smart%20Resource%20Hub%20School%20License.','_blank');
+}
+
+function goTo(id) {
+  document.querySelector(id)?.scrollIntoView({ behavior:'smooth' });
+}
+
+function toast(msg, type='ok') {
+  const t = document.createElement('div');
+  t.className = `t ${type}`;
+  t.innerHTML = `<span>${{ok:'✅',err:'❌',info:'ℹ️'}[type]||'ℹ️'}</span><span>${msg}</span>`;
+  document.getElementById('tc').appendChild(t);
+  setTimeout(() => {
+    t.style.animation = 'tout .25s ease forwards';
+    setTimeout(() => t.remove(), 280);
+  }, 3000);
+}
+
+// Close modals on overlay click
+document.getElementById('payModal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
+document.getElementById('authModal').addEventListener('click', function(e){ if(e.target===this) closeAuthModal(); });
+</script>
+</body>
+</html>
