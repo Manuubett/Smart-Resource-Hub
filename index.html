@@ -2,7 +2,7 @@
   Smart Resource Hub
   Copyright © 2026 Bett Emanuel — https://resource-hub.bett.website/
   All rights reserved.
-  v2 — Teacher onboarding with grade/subject selection + Ksh 99/term pricing
+  v3 — Fixed OG tags, WhatsApp/Telegram share, bett.website promo banner
 -->
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
@@ -29,7 +29,7 @@
 <meta property="og:title" content="Smart Resource Hub — Kenya CBC & CBE Teaching Resources">
 <meta property="og:description" content="Lesson plans, exam papers, schemes of work & rubrics built for Kenya's CBC/CBE curriculum, Grade 6 to Form 4. Unlock full access from Ksh 99/term via M-Pesa.">
 <meta property="og:url" content="https://resource-hub.bett.website/">
-<meta property="og:image" content="https://resource-hub.bett.website//og-image.png">
+<meta property="og:image" content="https://resource-hub.bett.website/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Smart Resource Hub — Kenya CBC & CBE Teaching Materials">
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Smart Resource Hub — Kenya CBC & CBE Teaching Resources">
 <meta name="twitter:description" content="Lesson plans, exam papers, schemes of work & rubrics for Kenyan teachers. Grade 6 to Form 4. Full access from Ksh 99/term via M-Pesa.">
-<meta name="twitter:image" content="https://resource-hub.bett.website//og-image.png">
+<meta name="twitter:image" content="https://resource-hub.bett.website/og-image.png">
 <meta name="twitter:image:alt" content="Smart Resource Hub — Kenya Teaching Materials">
 <meta name="twitter:site" content="@bettemanuel">
 <meta name="twitter:creator" content="@bettemanuel">
@@ -78,7 +78,7 @@
   "@type": "Organization",
   "name": "Smart Resource Hub",
   "url": "https://resource-hub.bett.website/",
-  "logo": "https://resource-hub.bett.website//logo.png",
+  "logo": "https://resource-hub.bett.website/logo.png",
   "founder": {
     "@type": "Person",
     "name": "Bett Emanuel",
@@ -101,7 +101,7 @@
 }
 </script>
 
-<!-- ══ STRUCTURED DATA — EducationalOrganization / Product ══ -->
+<!-- ══ STRUCTURED DATA — Product ══ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,6 +217,7 @@
   --gold:#f59e0b;--gold2:#d97706;
   --green:#10b981;--green2:#059669;
   --red:#ef4444;--purple:#8b5cf6;--purple2:#7c3aed;
+  --tg:#0088cc;--tg2:#006699;
   --toggle-bg:#1a2235;--toggle-border:#263550;--toggle-icon:"🌙";
   --shadow-card:0 4px 24px rgba(0,0,0,.4);
 }
@@ -228,6 +229,7 @@
   --gold:#d97706;--gold2:#b45309;
   --green:#059669;--green2:#047857;
   --red:#dc2626;--purple:#7c3aed;--purple2:#6d28d9;
+  --tg:#0088cc;--tg2:#006699;
   --toggle-bg:#e8edf5;--toggle-border:#c5cfe0;--toggle-icon:"☀️";
   --shadow-card:0 2px 12px rgba(0,0,0,.08);
 }
@@ -244,7 +246,7 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .lt{font-size:15px;font-weight:700;letter-spacing:-.4px;color:var(--text)}
 .ls{font-size:10px;color:var(--text3);font-weight:500;letter-spacing:.5px;text-transform:uppercase}
 .hdr-r{display:flex;align-items:center;gap:8px}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .15s;white-space:nowrap;text-decoration:none}
 .btn-primary{background:var(--accent);color:#fff}
 .btn-primary:hover{background:var(--accent2)}
 .btn-outline{background:none;border:1px solid var(--border2);color:var(--text2)}
@@ -253,8 +255,21 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .btn-gold:hover{background:var(--gold2)}
 .btn-green{background:var(--green);color:#fff}
 .btn-green:hover{background:var(--green2)}
+.btn-tg{background:var(--tg);color:#fff}
+.btn-tg:hover{background:var(--tg2)}
 .btn-sm{padding:5px 12px;font-size:12px}
 .btn-lg{padding:12px 28px;font-size:15px;font-weight:700;border-radius:10px}
+
+/* ══ PROMO BANNER ══ */
+.promo-banner{background:linear-gradient(135deg,rgba(59,130,246,.07),rgba(16,185,129,.07));border-top:1px solid rgba(59,130,246,.15);border-bottom:1px solid rgba(59,130,246,.15);padding:12px 24px;transition:background .3s}
+[data-theme="light"] .promo-banner{background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(5,150,105,.05));border-color:rgba(37,99,235,.15)}
+.promo-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.promo-left{display:flex;align-items:center;gap:12px}
+.promo-icon{width:38px;height:38px;background:var(--accent);border-radius:9px;display:grid;place-items:center;font-size:17px;flex-shrink:0}
+.promo-title{font-size:13px;font-weight:700;color:var(--text)}
+.promo-badge{font-size:9.5px;font-weight:800;background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3);padding:1px 7px;border-radius:20px;margin-left:7px;vertical-align:middle}
+[data-theme="light"] .promo-badge{background:rgba(5,150,105,.12);color:var(--green)}
+.promo-desc{font-size:11.5px;color:var(--text2);margin-top:2px}
 
 .hero{padding:72px 24px 56px;text-align:center;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(59,130,246,.12) 0%,transparent 70%);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
 [data-theme="light"] .hero{background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 70%)}
@@ -429,6 +444,10 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .auth-tab{flex:1;padding:9px;background:none;border:none;font-family:inherit;font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;transition:all .15s}
 .auth-tab.active{background:var(--accent);color:#fff}
 
+/* ══ SHARE ROW ══ */
+.share-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.share-label{font-size:11.5px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;margin-top:80px;transition:background .3s,border-color .3s}
 .ft{font-size:12.5px;color:var(--text3)}
 .ft a{color:var(--accent);text-decoration:none}
@@ -456,6 +475,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
   .plans-grid{grid-template-columns:1fr}
   .hdr-r .btn-outline{display:none}
   .subject-grid{grid-template-columns:1fr 1fr}
+  .promo-inner{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -663,8 +683,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
   </div>
 </header>
 
-<!-- HERO -->
+<!-- MAIN -->
 <main>
+
+<!-- HERO -->
 <div class="hero">
   <div class="hero-badge">📖 CBC & CBE-Aligned Resources</div>
   <h1>Everything a Kenya teacher<br>needs, <span>in one place.</span></h1>
@@ -678,6 +700,21 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
     <div class="hstat"><div class="hstat-n">Gr 6–F4</div><div class="hstat-l">All Levels</div></div>
     <div class="hstat"><div class="hstat-n">Ksh 99</div><div class="hstat-l">Per Term</div></div>
     <div class="hstat"><div class="hstat-n">M-Pesa</div><div class="hstat-l">Payment</div></div>
+  </div>
+</div>
+
+<!-- ══ bett.website PROMO BANNER ══ -->
+<div class="promo-banner">
+  <div class="promo-inner">
+    <div class="promo-left">
+      <div class="promo-icon">📊</div>
+      <div>
+        <span class="promo-title">CBE Marksheet Analytics</span>
+        <span class="promo-badge">FREE TOOL</span>
+        <div class="promo-desc">Auto-generate CBC/CBE report cards &amp; grade analysis — powered by AI · <strong style="color:var(--text)">bett.website</strong></div>
+      </div>
+    </div>
+    <a href="https://bett.website" target="_blank" rel="noopener" class="btn btn-gold btn-sm">Try it free →</a>
   </div>
 </div>
 
@@ -817,7 +854,15 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
 </div>
 </main>
 
+<!-- FOOTER -->
 <footer>
+  <!-- Share row -->
+  <div class="share-row" style="margin-bottom:16px">
+    <span class="share-label">Share with colleagues:</span>
+    <a href="https://wa.me/?text=Kenya%20teachers%20%E2%80%94%20Smart%20Resource%20Hub%20has%20CBC%20%26%20CBE%20lesson%20plans%2C%20exam%20papers%20%26%20schemes%20from%20just%20Ksh%2099%2Fterm.%20Check%20it%20out%3A%20https%3A%2F%2Fresource-hub.bett.website" target="_blank" rel="noopener" class="btn btn-green btn-sm">📲 Share on WhatsApp</a>
+    <a href="https://t.me/share/url?url=https%3A%2F%2Fresource-hub.bett.website&text=Kenya%20CBC%20%26%20CBE%20teaching%20resources%20%E2%80%94%20lesson%20plans%2C%20exam%20papers%2C%20schemes%20of%20work%20from%20Ksh%2099%2Fterm%20via%20M-Pesa." target="_blank" rel="noopener" class="btn btn-tg btn-sm">✈️ Share on Telegram</a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fresource-hub.bett.website&text=Kenya%20teachers%20%E2%80%94%20CBC%20%26%20CBE%20lesson%20plans%2C%20exam%20papers%20%26%20schemes%20from%20Ksh%2099%2Fterm%20via%20M-Pesa." target="_blank" rel="noopener" class="btn btn-sm" style="background:#1d9bf0;color:#fff;border:none">🐦 Share on X</a>
+  </div>
   <address style="font-style:normal">
     <div class="ft">Smart Resource Hub · Built for Kenyan Schools · <a href="https://resource-hub.bett.website/" rel="author">bett.website</a> · <a href="https://wa.me/254715172815" rel="noopener">WhatsApp: 0715 172 815</a></div>
   </address>
