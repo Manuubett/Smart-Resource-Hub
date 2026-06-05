@@ -1014,6 +1014,7 @@ async function triggerSTK(){
       D.log('[STK] no uid — signing in anonymously');
       const cred=await auth.signInAnonymously();
       uid=cred.user.uid;currentUid=uid;currentUser=cred.user;
+        startFirestoreListener(uid);
       D.ok('[STK] anonymous uid:', uid);
     }
     D.log('[STK:init] uid:', uid, '| plan:', selectedPlan, '| planKey:', PLANS[selectedPlan].key, '| phone:', dp, '| name:', name);
