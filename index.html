@@ -1,19 +1,12 @@
-<!--
-  Smart Resource Hub
-  Copyright © 2026 Bett Emanuel — https://resource-hub.bett.website/
-  All rights reserved.
-  v3 — Fixed OG tags, WhatsApp/Telegram share, bett.website promo banner
--->
+cat > /home/claude/index.html << 'ENDOFFILE'
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ══ PRIMARY META ══ -->
 <title>Smart Resource Hub | Kenya CBC & CBE Lesson Plans, Exam Papers & Schemes</title>
-<meta name="description" content="Kenya's #1 teaching resource platform. Download CBC & CBE-aligned lesson plans, exam papers, schemes of work, rubrics and more for Grade 1 to Form 4. Visit to get unlimited resources.">
-<meta name="keywords" content="Kenya CBC resources, CBE teaching materials, lesson plans Kenya, Grade 1 lesson plans, Grade 2 lesson plans, Grade 3 lesson plans, Grade 4 lesson plans, Grade 5 lesson plans, Grade 6 lesson plans, Form 1 exam papers, schemes of work Kenya, CBC grade 1, CBC grade 2, CBC grade 3, CBC grade 4, CBC grade 5, CBC grade 6, CBC grade 7, CBC grade 8, CBC grade 9, Form 2 revision notes, Kenya primary school resources, junior secondary resources, senior secondary CBE, Kenyan teacher resources, marking schemes Kenya, CBC rubrics">
+<meta name="description" content="Kenya's #1 teaching resource platform. Download CBC & CBE-aligned lesson plans, exam papers, schemes of work, rubrics and more for Grade 1 to Form 4.">
+<meta name="keywords" content="Kenya CBC resources, CBE teaching materials, lesson plans Kenya, Grade 6 lesson plans, Form 1 exam papers, schemes of work Kenya, CBC rubrics">
 <meta name="author" content="Bett KE">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="theme-color" content="#0b0f1a">
@@ -22,231 +15,45 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Smart Resource Hub">
 <link rel="canonical" href="https://resource-hub.bett.website/">
-
-<!-- ══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ══ -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Smart Resource Hub">
 <meta property="og:title" content="Smart Resource Hub — Kenya CBC & CBE Teaching Resources">
-<meta property="og:description" content="Lesson plans, exam papers, schemes of work & rubrics built for Kenya's CBC/CBE curriculum, Grade 1 to Form 4. Visit Smart Resource Hub to get unlimited resources.">
+<meta property="og:description" content="Lesson plans, exam papers, schemes of work & rubrics built for Kenya's CBC/CBE curriculum, Grade 1 to Form 4.">
 <meta property="og:url" content="https://resource-hub.bett.website/">
-<meta property="og:image" content="https://resource-hub.bett.website/og-image.png?v=3">
+<meta property="og:image" content="https://resource-hub.bett.website/og-image.png?v=4">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Smart Resource Hub — Kenya CBC & CBE Teaching Materials">
 <meta property="og:locale" content="en_KE">
-
-<!-- ══ TWITTER / X CARD ══ -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Smart Resource Hub — Kenya CBC & CBE Teaching Resources">
-<meta name="twitter:description" content="Lesson plans, exam papers, schemes of work & rubrics for Kenyan teachers. Grade 1 to Form 4. Visit to get unlimited resources.">
-<meta name="twitter:image" content="https://resource-hub.bett.website/og-image.png?v=3">
-<meta name="twitter:image:alt" content="Smart Resource Hub — Kenya Teaching Materials">
+<meta name="twitter:description" content="Lesson plans, exam papers, schemes of work & rubrics for Kenyan teachers.">
+<meta name="twitter:image" content="https://resource-hub.bett.website/og-image.png?v=4">
 <meta name="twitter:site" content="@bettemanuel">
 <meta name="twitter:creator" content="@bettemanuel">
-
-<!-- ══ GEO / REGION TARGETING ══ -->
 <meta name="geo.region" content="KE">
 <meta name="geo.country" content="Kenya">
 <meta name="geo.placename" content="Kenya">
 <meta name="ICBM" content="-1.286389, 36.817223">
-
-<!-- ══ FAVICON ══ -->
 <link rel="icon" type="image/png" sizes="32x32" href="https://resource-hub.bett.website/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://resource-hub.bett.website/favicon-16x16.png">
 <link rel="apple-touch-icon" href="https://resource-hub.bett.website/apple-touch-icon.png">
 <link rel="shortcut icon" href="https://resource-hub.bett.website/favicon.ico">
-
-<!-- ══ STRUCTURED DATA — WebSite ══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Smart Resource Hub",
-  "alternateName": "Smart Resource Hub Kenya",
-  "url": "https://resource-hub.bett.website/",
-  "description": "Kenya's #1 teaching resource platform with CBC & CBE-aligned lesson plans, exam papers, schemes of work and rubrics for Grade 1 to Form 4. Visit to get unlimited resources.",
-  "inLanguage": "en-KE",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://resource-hub.bett.website/#resources?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
-<!-- ══ STRUCTURED DATA — Organization ══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Smart Resource Hub",
-  "url": "https://resource-hub.bett.website/",
-  "logo": "https://resource-hub.bett.website/logo.png",
-  "founder": {
-    "@type": "Person",
-    "name": "Bett Emanuel",
-    "url": "https://resource-hub.bett.website/"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+254715172815",
-    "contactType": "customer support",
-    "availableLanguage": ["English", "Swahili"],
-    "contactOption": "TollFree"
-  },
-  "sameAs": [
-    "https://wa.me/254715172815"
-  ],
-  "areaServed": {
-    "@type": "Country",
-    "name": "Kenya"
-  }
-}
-</script>
-
-<!-- ══ STRUCTURED DATA — Product ══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Smart Resource Hub — Termly Access",
-  "description": "Full access to Kenya CBC & CBE teaching resources including lesson plans, exam papers, schemes of work and rubrics for Grade 6 to Form 4. One term access.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Smart Resource Hub"
-  },
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Termly Access",
-      "price": "99",
-      "priceCurrency": "KES",
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2027-12-31",
-      "url": "https://resource-hub.bett.website/#plans",
-      "seller": {
-        "@type": "Organization",
-        "name": "Smart Resource Hub"
-      }
-    },
-    {
-      "@type": "Offer",
-      "name": "Annual Access",
-      "price": "270",
-      "priceCurrency": "KES",
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2027-12-31",
-      "url": "https://resource-hub.bett.website/#plans"
-    },
-    {
-      "@type": "Offer",
-      "name": "School License",
-      "price": "2500",
-      "priceCurrency": "KES",
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2027-12-31",
-      "url": "https://resource-hub.bett.website/#plans"
-    }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "120",
-    "bestRating": "5"
-  }
-}
-</script>
-
-<!-- ══ STRUCTURED DATA — FAQPage ══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What curriculum does Smart Resource Hub cover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Smart Resource Hub covers Kenya's CBC (Competency-Based Curriculum) for Junior Secondary School (Grade 6–9) and CBE (Competency-Based Education) for Senior Secondary (Form 1–4 / Grade 10–13)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does Smart Resource Hub cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Termly access is Ksh 99 per term. Annual access is Ksh 270. A School License covering up to 30 teachers costs Ksh 2,500 per term. Payment is via M-Pesa STK Push."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I pay for Smart Resource Hub?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Payment is made via M-Pesa. When you select a plan, an STK Push prompt is sent to your phone. Simply enter your M-Pesa PIN to confirm and receive instant access."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What types of resources are available?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Resources include lesson plans, exam papers with marking schemes, schemes of work, assessment rubrics, and revision notes — all aligned to Kenya's CBC and CBE curriculum."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are there any free resources?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Several free resources are available per grade level and can be downloaded instantly without creating an account or making any payment."
-      }
-    }
-  ]
-}
-</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Smart Resource Hub","url":"https://resource-hub.bett.website/","description":"Kenya's #1 teaching resource platform.","inLanguage":"en-KE","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://resource-hub.bett.website/#resources?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Smart Resource Hub","url":"https://resource-hub.bett.website/","logo":"https://resource-hub.bett.website/logo.png","founder":{"@type":"Person","name":"Bett Emanuel"},"contactPoint":{"@type":"ContactPoint","telephone":"+254715172815","contactType":"customer support","availableLanguage":["English","Swahili"]},"sameAs":["https://wa.me/254715172815"],"areaServed":{"@type":"Country","name":"Kenya"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Smart Resource Hub — Termly Access","offers":[{"@type":"Offer","name":"Termly Access","price":"99","priceCurrency":"KES","availability":"https://schema.org/InStock","priceValidUntil":"2027-12-31","url":"https://resource-hub.bett.website/#plans"},{"@type":"Offer","name":"Annual Access","price":"270","priceCurrency":"KES","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"School License","price":"2500","priceCurrency":"KES","availability":"https://schema.org/InStock"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120","bestRating":"5"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What curriculum does Smart Resource Hub cover?","acceptedAnswer":{"@type":"Answer","text":"CBC for Junior Secondary (Grade 6-9) and CBE for Senior Secondary (Form 1-4)."}},{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"Termly Ksh 99, Annual Ksh 270, School License Ksh 2,500/term."}},{"@type":"Question","name":"How do I pay?","acceptedAnswer":{"@type":"Answer","text":"Via M-Pesa STK Push — select plan, enter number, confirm with PIN."}},{"@type":"Question","name":"Are there free resources?","acceptedAnswer":{"@type":"Answer","text":"Yes — several free resources per grade, downloadable without any account."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-:root,[data-theme="dark"]{
-  --bg:#0b0f1a;--bg2:#111827;--bg3:#1a2235;--surf:#161e2e;
-  --border:#1f2d45;--border2:#263550;
-  --text:#e8f0ff;--text2:#7a90b8;--text3:#3d4f72;
-  --accent:#3b82f6;--accent2:#1d4ed8;
-  --gold:#f59e0b;--gold2:#d97706;
-  --green:#10b981;--green2:#059669;
-  --red:#ef4444;--purple:#8b5cf6;--purple2:#7c3aed;
-  --tg:#0088cc;--tg2:#006699;
-  --toggle-bg:#1a2235;--toggle-border:#263550;--toggle-icon:"🌙";
-  --shadow-card:0 4px 24px rgba(0,0,0,.4);
-}
-[data-theme="light"]{
-  --bg:#f0f4f8;--bg2:#ffffff;--bg3:#e8edf5;--surf:#ffffff;
-  --border:#dde3ef;--border2:#c5cfe0;
-  --text:#0f172a;--text2:#475569;--text3:#94a3b8;
-  --accent:#2563eb;--accent2:#1d4ed8;
-  --gold:#d97706;--gold2:#b45309;
-  --green:#059669;--green2:#047857;
-  --red:#dc2626;--purple:#7c3aed;--purple2:#6d28d9;
-  --tg:#0088cc;--tg2:#006699;
-  --toggle-bg:#e8edf5;--toggle-border:#c5cfe0;--toggle-icon:"☀️";
-  --shadow-card:0 2px 12px rgba(0,0,0,.08);
-}
-
+:root,[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--bg3:#1a2235;--surf:#161e2e;--border:#1f2d45;--border2:#263550;--text:#e8f0ff;--text2:#7a90b8;--text3:#3d4f72;--accent:#3b82f6;--accent2:#1d4ed8;--gold:#f59e0b;--gold2:#d97706;--green:#10b981;--green2:#059669;--red:#ef4444;--purple:#8b5cf6;--purple2:#7c3aed;--tg:#0088cc;--tg2:#006699;--toggle-bg:#1a2235;--toggle-border:#263550;--toggle-icon:"🌙";--shadow-card:0 4px 24px rgba(0,0,0,.4)}
+[data-theme="light"]{--bg:#f0f4f8;--bg2:#ffffff;--bg3:#e8edf5;--surf:#ffffff;--border:#dde3ef;--border2:#c5cfe0;--text:#0f172a;--text2:#475569;--text3:#94a3b8;--accent:#2563eb;--accent2:#1d4ed8;--gold:#d97706;--gold2:#b45309;--green:#059669;--green2:#047857;--red:#dc2626;--purple:#7c3aed;--purple2:#6d28d9;--tg:#0088cc;--tg2:#006699;--toggle-bg:#e8edf5;--toggle-border:#c5cfe0;--toggle-icon:"☀️";--shadow-card:0 2px 12px rgba(0,0,0,.08)}
 body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);font-size:14px;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
-
 .theme-toggle{width:38px;height:38px;border-radius:10px;background:var(--toggle-bg);border:1px solid var(--toggle-border);cursor:pointer;display:grid;place-items:center;font-size:16px;transition:all .2s;flex-shrink:0}
 .theme-toggle:hover{border-color:var(--accent);background:var(--bg3)}
 .theme-toggle::after{content:var(--toggle-icon)}
-
 header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;transition:background .3s,border-color .3s}
 .logo{display:flex;align-items:center;gap:10px}
 .lm{width:34px;height:34px;background:var(--accent);border-radius:9px;display:grid;place-items:center;color:#fff;font-size:16px;font-weight:800;font-family:'DM Mono',monospace}
@@ -266,8 +73,6 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .btn-tg:hover{background:var(--tg2)}
 .btn-sm{padding:5px 12px;font-size:12px}
 .btn-lg{padding:12px 28px;font-size:15px;font-weight:700;border-radius:10px}
-
-/* ══ PROMO BANNER ══ */
 .promo-banner{background:linear-gradient(135deg,rgba(59,130,246,.07),rgba(16,185,129,.07));border-top:1px solid rgba(59,130,246,.15);border-bottom:1px solid rgba(59,130,246,.15);padding:12px 24px;transition:background .3s}
 [data-theme="light"] .promo-banner{background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(5,150,105,.05));border-color:rgba(37,99,235,.15)}
 .promo-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
@@ -277,7 +82,6 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .promo-badge{font-size:9.5px;font-weight:800;background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3);padding:1px 7px;border-radius:20px;margin-left:7px;vertical-align:middle}
 [data-theme="light"] .promo-badge{background:rgba(5,150,105,.12);color:var(--green)}
 .promo-desc{font-size:11.5px;color:var(--text2);margin-top:2px}
-
 .hero{padding:72px 24px 56px;text-align:center;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(59,130,246,.12) 0%,transparent 70%);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
 [data-theme="light"] .hero{background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 70%)}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);color:var(--accent);font-size:11.5px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:24px;text-transform:uppercase;letter-spacing:.8px}
@@ -288,18 +92,15 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .hstat{text-align:center}
 .hstat-n{font-size:28px;font-weight:800;font-family:'DM Mono',monospace;color:var(--gold)}
 .hstat-l{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
-
 .page{max-width:1200px;margin:0 auto;padding:0 24px}
 .sec{padding:56px 0 32px}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
 .sec-title{font-size:22px;font-weight:700;letter-spacing:-.5px;color:var(--text)}
 .sec-sub{font-size:13px;color:var(--text3);font-weight:500}
-
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .fchip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--border2);background:none;color:var(--text2);cursor:pointer;transition:all .14s;font-family:inherit}
 .fchip:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,130,246,.06)}
 .fchip.active{background:var(--accent);border-color:var(--accent);color:#fff}
-
 .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 .res-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .2s;cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--shadow-card)}
 .res-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .2s}
@@ -324,8 +125,6 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .dl-btn{padding:5px 13px;border-radius:6px;font-size:11.5px;font-weight:700;border:none;cursor:pointer;font-family:inherit;transition:all .13s}
 .dl-free{background:var(--green);color:#fff}
 .dl-free:hover{background:var(--green2)}
-.dl-locked{background:var(--bg3);color:var(--text3);border:1px solid var(--border);cursor:not-allowed}
-
 .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .plan-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:28px 24px;position:relative;transition:all .2s;box-shadow:var(--shadow-card)}
 .plan-card.featured{border-color:var(--gold);box-shadow:0 0 40px rgba(245,158,11,.1)}
@@ -341,7 +140,6 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .plan-feats li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;margin-top:1px}
 .plan-feats li.no::before{content:'✕';color:var(--text3)}
 .plan-feats li.no{color:var(--text3)}
-
 .modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);align-items:center;justify-content:center}
 .modal-overlay.open{display:flex}
 .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:32px;max-width:480px;width:calc(100% - 32px);box-shadow:0 24px 80px rgba(0,0,0,.5);transition:background .3s;max-height:90vh;overflow-y:auto}
@@ -374,14 +172,12 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:.7}}
 .stk-msg{font-size:14px;color:var(--text2);line-height:1.6}
 .stk-phone{color:var(--green);font-weight:700;font-family:'DM Mono',monospace}
-
 .poll-dots{display:inline-flex;gap:4px;margin-top:12px}
 .poll-dot{width:6px;height:6px;border-radius:50%;background:var(--text3)}
 .poll-dot:nth-child(1){animation:pd 1.2s .0s ease-in-out infinite}
 .poll-dot:nth-child(2){animation:pd 1.2s .2s ease-in-out infinite}
 .poll-dot:nth-child(3){animation:pd 1.2s .4s ease-in-out infinite}
 @keyframes pd{0%,100%{background:var(--text3)}50%{background:var(--green)}}
-
 .subject-selector{margin-top:6px}
 .subject-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:7px;margin-top:8px}
 .subj-chip{padding:8px 10px;border-radius:8px;font-size:12px;font-weight:600;border:1.5px solid var(--border2);background:var(--bg3);color:var(--text2);cursor:pointer;transition:all .14s;font-family:inherit;text-align:left;display:flex;align-items:center;gap:7px;position:relative}
@@ -397,43 +193,34 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .subj-counter-bar{flex:1;height:5px;background:var(--border2);border-radius:3px;overflow:hidden}
 .subj-counter-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .3s cubic-bezier(.4,0,.2,1)}
 .subj-counter-fill.full{background:var(--green)}
-.subj-counter-fill.over{background:var(--red)}
-.subj-counter-label{color:var(--text3);white-space:nowrap;min-width:56px;text-align:right}
-
 .grade-info-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.18);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:var(--text2);line-height:1.5}
 .grade-info-box strong{color:var(--accent)}
-
 .signup-steps{display:flex;gap:0;margin-bottom:24px;border-radius:8px;overflow:hidden;border:1px solid var(--border2)}
 .signup-step-tab{flex:1;padding:9px 8px;background:none;border:none;font-family:inherit;font-size:12px;font-weight:600;color:var(--text3);cursor:default;text-align:center;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:5px}
 .signup-step-tab.done{background:rgba(16,185,129,.08);color:var(--green)}
 .signup-step-tab.active{background:var(--accent);color:#fff}
 .signup-step-tab .step-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:9px;font-weight:800;flex-shrink:0}
 .signup-step-tab.done .step-dot{background:var(--green);border-color:var(--green);color:#fff}
-
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
 .step{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:24px 20px;transition:background .3s,border-color .3s;box-shadow:var(--shadow-card)}
 .step-n{width:36px;height:36px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);display:grid;place-items:center;font-size:15px;font-weight:800;font-family:'DM Mono',monospace;color:var(--accent);margin-bottom:14px}
 .step-t{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--text)}
 .step-d{font-size:12.5px;color:var(--text2);line-height:1.6}
-
 .search-wrap{position:relative;margin-bottom:16px}
 .search-input{width:100%;padding:11px 16px 11px 42px;background:var(--surf);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:'Sora',sans-serif;font-size:14px;outline:none;transition:border-color .15s,background .3s}
 .search-input:focus{border-color:var(--accent)}
 .search-input::placeholder{color:var(--text3)}
 .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--text3)}
-
 .skeleton{background:linear-gradient(90deg,var(--surf) 25%,var(--bg3) 50%,var(--surf) 75%);background-size:200% 100%;animation:sk 1.5s infinite;border-radius:6px;height:14px;margin-bottom:8px}
 @keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .skel-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:20px}
 .empty-msg{text-align:center;padding:56px 20px;color:var(--text3)}
 .empty-msg .ei{font-size:40px;margin-bottom:12px}
-
 .sub-banner{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(59,130,246,.08));border:1px solid rgba(16,185,129,.25);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .sb-l{display:flex;align-items:center;gap:10px}
 .sb-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);flex-shrink:0}
 .sb-t{font-size:14px;font-weight:700;color:var(--text)}
 .sb-d{font-size:12px;color:var(--text2)}
-
 .teacher-profile-badge{background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(59,130,246,.08));border:1px solid rgba(139,92,246,.25);border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .tpb-icon{font-size:22px}
 .tpb-info{flex:1;min-width:0}
@@ -441,24 +228,18 @@ header{background:var(--bg2);backdrop-filter:blur(12px);border-bottom:1px solid 
 .tpb-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
 .tpb-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:var(--accent)}
 .tpb-tag.purple{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.2);color:var(--purple)}
-
 .auth-notice{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px}
 .auth-notice-icon{font-size:20px;flex-shrink:0}
 .auth-notice-text{font-size:13px;color:var(--text2);line-height:1.5}
 .auth-notice-text strong{color:var(--text);font-weight:600}
-
 .auth-tabs{display:flex;gap:0;border:1px solid var(--border2);border-radius:8px;overflow:hidden;margin-bottom:24px}
 .auth-tab{flex:1;padding:9px;background:none;border:none;font-family:inherit;font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;transition:all .15s}
 .auth-tab.active{background:var(--accent);color:#fff}
-
-/* ══ SHARE ROW ══ */
 .share-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .share-label{font-size:11.5px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
-
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24px;text-align:center;margin-top:80px;transition:background .3s,border-color .3s}
 .ft{font-size:12.5px;color:var(--text3)}
 .ft a{color:var(--accent);text-decoration:none}
-
 #tc{position:fixed;top:70px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:6px}
 .t{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:500;box-shadow:0 8px 32px rgba(0,0,0,.3);animation:tin .25s ease;min-width:220px;max-width:320px}
 .t.ok{background:#064e3b;color:#ecfdf5;border-left:3px solid var(--green)}
@@ -469,25 +250,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
 [data-theme="light"] .t.info{background:#dbeafe;color:#1e3a5f}
 @keyframes tin{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
 @keyframes tout{to{transform:translateX(110%);opacity:0}}
-
 .spin{width:18px;height:18px;border:2.5px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
 @keyframes sp{to{transform:rotate(360deg)}}
-
 .form-divider{border:none;border-top:1px solid var(--border);margin:20px 0}
-
-@media(max-width:640px){
-  .hero{padding:48px 16px 40px}
-  .hero-stats{gap:24px}
-  .page{padding:0 16px}
-  .plans-grid{grid-template-columns:1fr}
-  .hdr-r .btn-outline{display:none}
-  .subject-grid{grid-template-columns:1fr 1fr}
-  .promo-inner{flex-direction:column;align-items:flex-start}
-}
+@media(max-width:640px){.hero{padding:48px 16px 40px}.hero-stats{gap:24px}.page{padding:0 16px}.plans-grid{grid-template-columns:1fr}.hdr-r .btn-outline{display:none}.subject-grid{grid-template-columns:1fr 1fr}.promo-inner{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
-
 <div id="tc"></div>
 
 <!-- PAYMENT MODAL -->
@@ -495,17 +264,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
   <div class="modal">
     <div class="modal-head">
       <span class="modal-title">Complete Payment</span>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()">&#x2715;</button>
     </div>
     <div id="payForm">
-      <div class="mpesa-logo">
-        <span>M-PESA</span>
-        <span>Powered by Paynecta</span>
-      </div>
+      <div class="mpesa-logo"><span>M-PESA</span><span>Powered by Paynecta</span></div>
       <div class="plan-summary">
-        <div class="ps-row"><span class="ps-label">Plan</span><span class="ps-val" id="sumPlan">—</span></div>
-        <div class="ps-row"><span class="ps-label">Duration</span><span class="ps-val" id="sumDur">—</span></div>
-        <div class="ps-row ps-total"><span class="ps-label">Total</span><span class="ps-val" id="sumAmt">—</span></div>
+        <div class="ps-row"><span class="ps-label">Plan</span><span class="ps-val" id="sumPlan">&#x2014;</span></div>
+        <div class="ps-row"><span class="ps-label">Duration</span><span class="ps-val" id="sumDur">&#x2014;</span></div>
+        <div class="ps-row ps-total"><span class="ps-label">Total</span><span class="ps-val" id="sumAmt">&#x2014;</span></div>
       </div>
       <div class="form-row">
         <label class="form-label">M-Pesa Phone Number</label>
@@ -516,26 +282,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
         <input class="form-input" type="text" id="payName" placeholder="Your full name">
       </div>
       <div class="form-row">
-        <label class="form-label">Email (optional — for receipt)</label>
+        <label class="form-label">Email (optional &#x2014; for receipt)</label>
         <input class="form-input" type="email" id="payEmail" placeholder="you@school.ac.ke">
       </div>
       <button class="btn btn-green btn-lg" style="width:100%;justify-content:center" onclick="triggerSTK()" id="stkBtn">
-        📱 Send STK Push
+        &#x1F4F1; Send STK Push
       </button>
-      <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px">
-        A payment prompt will appear on your phone. Enter your M-Pesa PIN to complete.
-      </p>
+      <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px">A payment prompt will appear on your phone. Enter your M-Pesa PIN to complete.</p>
     </div>
     <div class="stk-status" id="stkStatus">
-      <span class="stk-anim">📱</span>
+      <span class="stk-anim">&#x1F4F1;</span>
       <div class="stk-msg">
         Check your phone<br>
         <span class="stk-phone" id="stkPhone">0700 000 000</span><br><br>
         Enter your M-Pesa PIN to unlock full access.
         <div class="poll-dots"><div class="poll-dot"></div><div class="poll-dot"></div><div class="poll-dot"></div></div>
       </div>
-      <p style="font-size:11px;color:var(--text3);margin-top:14px" id="pollMsg">Waiting for payment confirmation…</p>
-      <button class="btn btn-outline" style="margin-top:14px;width:100%;justify-content:center" onclick="resetModal()">Try Again</button>
+      <p style="font-size:11px;color:var(--text3);margin-top:14px" id="pollMsg">Waiting for payment confirmation&#x2026;</p>
+      <button class="btn btn-green" style="margin-top:14px;width:100%;justify-content:center" onclick="manualCheck()">
+        &#x2705; I Already Paid &#x2014; Check Now
+      </button>
+      <button class="btn btn-outline" style="margin-top:8px;width:100%;justify-content:center" onclick="resetModal()">
+        &#x2190; Try Different Number
+      </button>
     </div>
   </div>
 </div>
@@ -545,23 +314,17 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
   <div class="modal">
     <div class="modal-head">
       <span class="modal-title" id="authModalTitle">Sign in</span>
-      <button class="modal-close" onclick="closeAuthModal()">✕</button>
+      <button class="modal-close" onclick="closeAuthModal()">&#x2715;</button>
     </div>
     <div class="auth-tabs">
       <button class="auth-tab active" id="tabSignIn" onclick="switchTab('signin')">Sign In</button>
       <button class="auth-tab" id="tabSignUp" onclick="switchTab('signup')">Create Account</button>
     </div>
     <div id="formSignIn">
-      <div class="form-row">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" id="siEmail" placeholder="you@school.ac.ke">
-      </div>
-      <div class="form-row">
-        <label class="form-label">Password</label>
-        <input class="form-input" type="password" id="siPass" placeholder="••••••••">
-      </div>
+      <div class="form-row"><label class="form-label">Email</label><input class="form-input" type="email" id="siEmail" placeholder="you@school.ac.ke"></div>
+      <div class="form-row"><label class="form-label">Password</label><input class="form-input" type="password" id="siPass" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
       <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-bottom:10px" onclick="doSignIn()" id="siBtn">Sign In</button>
-      <button class="btn btn-outline" style="width:100%;justify-content:center;font-size:12px" onclick="doGoogleSignIn()">🔑 Sign in with Google</button>
+      <button class="btn btn-outline" style="width:100%;justify-content:center;font-size:12px" onclick="doGoogleSignIn()">&#x1F511; Sign in with Google</button>
     </div>
     <div id="formSignUp" style="display:none">
       <div class="signup-steps" id="signupStepTabs">
@@ -570,36 +333,24 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
         <div class="signup-step-tab" id="stepTab3"><span class="step-dot">3</span> Subjects</div>
       </div>
       <div id="signupStep1">
-        <div class="form-row">
-          <label class="form-label">Full Name <span class="req">*</span></label>
-          <input class="form-input" type="text" id="suName" placeholder="Jane Wanjiku">
-        </div>
-        <div class="form-row">
-          <label class="form-label">Email <span class="req">*</span></label>
-          <input class="form-input" type="email" id="suEmail" placeholder="you@school.ac.ke">
-        </div>
-        <div class="form-row">
-          <label class="form-label">Password <span class="req">*</span></label>
-          <input class="form-input" type="password" id="suPass" placeholder="Min 6 characters">
-        </div>
+        <div class="form-row"><label class="form-label">Full Name <span class="req">*</span></label><input class="form-input" type="text" id="suName" placeholder="Jane Wanjiku"></div>
+        <div class="form-row"><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email" id="suEmail" placeholder="you@school.ac.ke"></div>
+        <div class="form-row"><label class="form-label">Password <span class="req">*</span></label><input class="form-input" type="password" id="suPass" placeholder="Min 6 characters"></div>
         <div class="form-row">
           <label class="form-label">Role <span class="req">*</span></label>
           <select class="form-select" id="suRole" onchange="onRoleChange()">
-            <option value="">— Select your role —</option>
-            <option value="teacher">🍎 Teacher</option>
-            <option value="hod">📋 Head of Department (HOD)</option>
-            <option value="deputy">🏫 Deputy Head Teacher</option>
-            <option value="head">🎓 Head Teacher / Principal</option>
-            <option value="admin">🖥️ School Administrator</option>
-            <option value="other">👤 Other</option>
+            <option value="">&#x2014; Select your role &#x2014;</option>
+            <option value="teacher">&#x1F34E; Teacher</option>
+            <option value="hod">&#x1F4CB; Head of Department (HOD)</option>
+            <option value="deputy">&#x1F3EB; Deputy Head Teacher</option>
+            <option value="head">&#x1F393; Head Teacher / Principal</option>
+            <option value="admin">&#x1F5A5;&#xFE0F; School Administrator</option>
+            <option value="other">&#x1F464; Other</option>
           </select>
         </div>
-        <div class="form-row">
-          <label class="form-label">School Name <span class="req">*</span></label>
-          <input class="form-input" type="text" id="suSchool" placeholder="e.g. Nairobi Primary School">
-        </div>
-        <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="goToStep2()">Next → Profile Setup</button>
-        <button class="btn btn-outline" style="width:100%;justify-content:center;font-size:12px;margin-top:8px" onclick="doGoogleSignIn()">🔑 Continue with Google</button>
+        <div class="form-row"><label class="form-label">School Name <span class="req">*</span></label><input class="form-input" type="text" id="suSchool" placeholder="e.g. Nairobi Primary School"></div>
+        <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="goToStep2()">Next &#x2192; Profile Setup</button>
+        <button class="btn btn-outline" style="width:100%;justify-content:center;font-size:12px;margin-top:8px" onclick="doGoogleSignIn()">&#x1F511; Continue with Google</button>
       </div>
       <div id="signupStep2" style="display:none">
         <div class="form-row">
@@ -608,64 +359,56 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
             <div>
               <label class="form-label" style="margin-bottom:5px;font-size:11px">From Grade</label>
               <select class="form-select" id="gradeFrom" onchange="onGradeChange()">
-                <option value="">— From —</option>
+                <option value="">&#x2014; From &#x2014;</option>
                 <optgroup label="Junior Secondary (CBC)">
-                  <option value="6">Grade 6</option>
-                  <option value="7">Grade 7</option>
-                  <option value="8">Grade 8</option>
-                  <option value="9">Grade 9</option>
+                  <option value="6">Grade 6</option><option value="7">Grade 7</option>
+                  <option value="8">Grade 8</option><option value="9">Grade 9</option>
                 </optgroup>
                 <optgroup label="Senior Secondary (CBE)">
-                  <option value="10">Form 1 (Grade 10)</option>
-                  <option value="11">Form 2 (Grade 11)</option>
-                  <option value="12">Form 3 (Grade 12)</option>
-                  <option value="13">Form 4 (Grade 13)</option>
+                  <option value="10">Form 1 (Grade 10)</option><option value="11">Form 2 (Grade 11)</option>
+                  <option value="12">Form 3 (Grade 12)</option><option value="13">Form 4 (Grade 13)</option>
                 </optgroup>
               </select>
             </div>
             <div>
               <label class="form-label" style="margin-bottom:5px;font-size:11px">To Grade</label>
               <select class="form-select" id="gradeTo" onchange="onGradeChange()">
-                <option value="">— To —</option>
+                <option value="">&#x2014; To &#x2014;</option>
                 <optgroup label="Junior Secondary (CBC)">
-                  <option value="6">Grade 6</option>
-                  <option value="7">Grade 7</option>
-                  <option value="8">Grade 8</option>
-                  <option value="9">Grade 9</option>
+                  <option value="6">Grade 6</option><option value="7">Grade 7</option>
+                  <option value="8">Grade 8</option><option value="9">Grade 9</option>
                 </optgroup>
                 <optgroup label="Senior Secondary (CBE)">
-                  <option value="10">Form 1 (Grade 10)</option>
-                  <option value="11">Form 2 (Grade 11)</option>
-                  <option value="12">Form 3 (Grade 12)</option>
-                  <option value="13">Form 4 (Grade 13)</option>
+                  <option value="10">Form 1 (Grade 10)</option><option value="11">Form 2 (Grade 11)</option>
+                  <option value="12">Form 3 (Grade 12)</option><option value="13">Form 4 (Grade 13)</option>
                 </optgroup>
               </select>
             </div>
           </div>
         </div>
         <div class="grade-info-box" id="gradeInfoBox" style="display:none"><span id="gradeInfoText"></span></div>
-        <div class="grade-info-box" id="subjectLimitNote" style="display:none">📌 <strong id="subjectLimitLabel"></strong></div>
+        <div class="grade-info-box" id="subjectLimitNote" style="display:none">&#x1F4CC; <strong id="subjectLimitLabel"></strong></div>
         <div style="display:flex;gap:10px;margin-top:4px">
-          <button class="btn btn-outline" style="flex:1;justify-content:center" onclick="goToStep(1)">← Back</button>
-          <button class="btn btn-primary" style="flex:2;justify-content:center" onclick="goToStep3()">Next → Choose Subjects</button>
+          <button class="btn btn-outline" style="flex:1;justify-content:center" onclick="goToStep(1)">&#x2190; Back</button>
+          <button class="btn btn-primary" style="flex:2;justify-content:center" onclick="goToStep3()">Next &#x2192; Choose Subjects</button>
         </div>
       </div>
       <div id="signupStep3" style="display:none">
         <div class="form-row">
           <label class="form-label" id="subjectPickerLabel">Select your subjects <span class="req">*</span></label>
-          <div class="grade-info-box" id="step3GradeReminder">Loading grade info…</div>
+          <div class="grade-info-box" id="step3GradeReminder">Loading grade info&#x2026;</div>
           <div class="subject-selector">
             <div class="subject-grid" id="subjectGrid"></div>
             <div class="subj-counter" id="subjCounter">
               <span id="subjCountLabel" style="color:var(--text2);white-space:nowrap">0 selected</span>
               <div class="subj-counter-bar"><div class="subj-counter-fill" id="subjCountFill" style="width:0%"></div></div>
-              <span class="subj-counter-label" id="subjMaxLabel">max —</span>
+              <span class="subj-counter-label" id="subjMaxLabel">max &#x2014;</span>
             </div>
           </div>
         </div>
         <div style="display:flex;gap:10px;margin-top:8px">
-          <button class="btn btn-outline" style="flex:1;justify-content:center" onclick="goToStep(2)">← Back</button>
-          <button class="btn btn-primary btn-lg" style="flex:2;justify-content:center" onclick="doSignUp()" id="suBtn">✅ Create Account</button>
+          <button class="btn btn-outline" style="flex:1;justify-content:center" onclick="goToStep(2)">&#x2190; Back</button>
+          <button class="btn btn-primary btn-lg" style="flex:2;justify-content:center" onclick="doSignUp()" id="suBtn">&#x2705; Create Account</button>
         </div>
         <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px;line-height:1.6">Your subject selection determines which resources are highlighted for you.<br>You can update it later from your profile.</p>
       </div>
@@ -677,62 +420,54 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
 <!-- HEADER -->
 <header>
   <div class="logo">
-    <div class="lm">📚</div>
-    <div>
-      <div class="lt">Smart Resource Hub</div>
-      <div class="ls">Kenya CBC · Grades 6–Form 4</div>
-    </div>
+    <div class="lm">&#x1F4DA;</div>
+    <div><div class="lt">Smart Resource Hub</div><div class="ls">Kenya CBC &#xB7; Grades 6&#x2013;Form 4</div></div>
   </div>
   <div class="hdr-r">
     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode"></button>
     <button class="btn btn-outline btn-sm" id="authBtn" onclick="handleAuthBtn()">Sign In</button>
-    <button class="btn btn-gold btn-sm" onclick="openPlan('termly')">⭐ Get Full Access</button>
+    <button class="btn btn-gold btn-sm" onclick="openPlan('termly')">&#x2B50; Get Full Access</button>
   </div>
 </header>
 
-<!-- MAIN -->
 <main>
-
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">📖 CBC & CBE-Aligned Resources</div>
+  <div class="hero-badge">&#x1F4D6; CBC &amp; CBE-Aligned Resources</div>
   <h1>Everything a Kenya teacher<br>needs, <span>in one place.</span></h1>
-  <p>Lesson plans, exam papers, schemes of work, rubrics and more — built for Kenya's CBC/CBE curriculum, Grade 6 to Form 4.</p>
+  <p>Lesson plans, exam papers, schemes of work, rubrics and more &#x2014; built for Kenya&#x2019;s CBC/CBE curriculum, Grade 6 to Form 4.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
     <button class="btn btn-primary btn-lg" onclick="goTo('#resources')">Browse Resources</button>
     <button class="btn btn-gold btn-lg" onclick="goTo('#plans')">View Plans</button>
   </div>
   <div class="hero-stats">
-    <div class="hstat"><div class="hstat-n" id="statTotal">—</div><div class="hstat-l">Resources</div></div>
-    <div class="hstat"><div class="hstat-n">Gr 6–F4</div><div class="hstat-l">All Levels</div></div>
+    <div class="hstat"><div class="hstat-n" id="statTotal">&#x2014;</div><div class="hstat-l">Resources</div></div>
+    <div class="hstat"><div class="hstat-n">Gr 6&#x2013;F4</div><div class="hstat-l">All Levels</div></div>
     <div class="hstat"><div class="hstat-n">Ksh 99</div><div class="hstat-l">Per Term</div></div>
     <div class="hstat"><div class="hstat-n">M-Pesa</div><div class="hstat-l">Payment</div></div>
   </div>
 </div>
 
-<!-- ══ bett.website PROMO BANNER ══ -->
 <div class="promo-banner">
   <div class="promo-inner">
     <div class="promo-left">
-      <div class="promo-icon">📊</div>
+      <div class="promo-icon">&#x1F4CA;</div>
       <div>
         <span class="promo-title">CBE Marksheet Analytics</span>
         <span class="promo-badge">FREE TOOL</span>
-        <div class="promo-desc">Auto-generate CBC/CBE report cards &amp; grade analysis — powered by AI · <strong style="color:var(--text)">bett.website</strong></div>
+        <div class="promo-desc">Auto-generate CBC/CBE report cards &amp; grade analysis &#x2014; powered by AI &#xB7; <strong style="color:var(--text)">bett.website</strong></div>
       </div>
     </div>
-    <a href="https://bett.website" target="_blank" rel="noopener" class="btn btn-gold btn-sm">Try it free →</a>
+    <a href="https://bett.website" target="_blank" rel="noopener" class="btn btn-gold btn-sm">Try it free &#x2192;</a>
   </div>
 </div>
 
 <div class="page">
-
   <div class="sec">
     <div class="sec-head"><div class="sec-title">How it works</div></div>
     <div class="steps">
       <div class="step"><div class="step-n">01</div><div class="step-t">Create your account</div><div class="step-d">Sign up, select your grades and subjects. Resources are filtered just for you.</div></div>
-      <div class="step"><div class="step-n">02</div><div class="step-t">Browse free resources</div><div class="step-d">Download free resources instantly — no payment needed.</div></div>
-      <div class="step"><div class="step-n">03</div><div class="step-t">Pay Ksh 99 via M-Pesa</div><div class="step-d">STK Push to your phone. Enter PIN — full access in seconds.</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-t">Browse free resources</div><div class="step-d">Download free resources instantly &#x2014; no payment needed.</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-t">Pay Ksh 99 via M-Pesa</div><div class="step-d">STK Push to your phone. Enter PIN &#x2014; full access in seconds.</div></div>
       <div class="step"><div class="step-n">04</div><div class="step-t">Download &amp; teach</div><div class="step-d">PDF and Word downloads, ready to print or use anywhere.</div></div>
     </div>
   </div>
@@ -740,35 +475,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
   <div class="sec" id="plans">
     <div class="sec-head">
       <div class="sec-title">Choose your plan</div>
-      <div class="sec-sub">Free resources need no account · Premium unlocks everything</div>
+      <div class="sec-sub">Free resources need no account &#xB7; Premium unlocks everything</div>
     </div>
     <div class="plans-grid">
       <div class="plan-card">
         <div class="plan-name">Free</div>
         <div class="plan-price"><span class="plan-amt">Ksh 0</span></div>
-        <div class="plan-alt">Forever free · No payment required</div>
+        <div class="plan-alt">Forever free &#xB7; No payment required</div>
         <ul class="plan-feats">
-          <li>5 free resources per grade</li>
-          <li>CBC/CBE scale reference cards</li>
-          <li>Sample lesson plan (1 subject)</li>
-          <li>Instant download — no signup</li>
-          <li class="no">Full resource library</li>
-          <li class="no">Exam papers &amp; schemes</li>
+          <li>5 free resources per grade</li><li>CBC/CBE scale reference cards</li>
+          <li>Sample lesson plan (1 subject)</li><li>Instant download &#x2014; no signup</li>
+          <li class="no">Full resource library</li><li class="no">Exam papers &amp; schemes</li>
         </ul>
         <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="goTo('#resources')">Browse Free Resources</button>
       </div>
       <div class="plan-card featured">
-        <div class="plan-popular">⭐ Most Popular</div>
+        <div class="plan-popular">&#x2B50; Most Popular</div>
         <div class="plan-name" style="color:var(--gold)">Termly</div>
         <div class="plan-price"><span class="plan-amt" style="color:var(--gold)">Ksh 99</span><span class="plan-period">/term</span></div>
-        <div class="plan-alt">~Ksh 33/month · Less than a pen</div>
+        <div class="plan-alt">&#x7E;Ksh 33/month &#xB7; Less than a pen</div>
         <ul class="plan-feats">
-          <li>Full resource library</li>
-          <li>All grades 6 to Form 4</li>
-          <li>Lesson plans, schemes &amp; rubrics</li>
-          <li>Exam papers + marking schemes</li>
-          <li>Filtered by your subjects</li>
-          <li>New resources every week</li>
+          <li>Full resource library</li><li>All grades 6 to Form 4</li>
+          <li>Lesson plans, schemes &amp; rubrics</li><li>Exam papers + marking schemes</li>
+          <li>Filtered by your subjects</li><li>New resources every week</li>
           <li class="no">School-wide access</li>
         </ul>
         <button class="btn btn-gold btn-lg" style="width:100%;justify-content:center" onclick="openPlan('termly')">Pay Ksh 99 via M-Pesa</button>
@@ -776,28 +505,22 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
       <div class="plan-card">
         <div class="plan-name">Annual</div>
         <div class="plan-price"><span class="plan-amt">Ksh 270</span></div>
-        <div class="plan-alt">per year · save Ksh 27 vs termly</div>
+        <div class="plan-alt">per year &#xB7; save Ksh 27 vs termly</div>
         <ul class="plan-feats">
-          <li>Everything in Termly</li>
-          <li>Full year access (3 terms)</li>
-          <li>Holiday assignment packs</li>
-          <li>CBC/CBE revision notes per subject</li>
-          <li>Early access to new resources</li>
-          <li class="no">School-wide access</li>
+          <li>Everything in Termly</li><li>Full year access (3 terms)</li>
+          <li>Holiday assignment packs</li><li>CBC/CBE revision notes per subject</li>
+          <li>Early access to new resources</li><li class="no">School-wide access</li>
         </ul>
         <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="openPlan('annual')">Pay Ksh 270 via M-Pesa</button>
       </div>
       <div class="plan-card">
         <div class="plan-name">School License</div>
         <div class="plan-price"><span class="plan-amt">Ksh 2,500</span></div>
-        <div class="plan-alt">per term · all teachers</div>
+        <div class="plan-alt">per term &#xB7; all teachers</div>
         <ul class="plan-feats">
-          <li>Everything in Termly</li>
-          <li>Up to 30 teacher accounts</li>
-          <li>Shared school library</li>
-          <li>Admin dashboard</li>
-          <li>WhatsApp support priority</li>
-          <li>Custom resource requests</li>
+          <li>Everything in Termly</li><li>Up to 30 teacher accounts</li>
+          <li>Shared school library</li><li>Admin dashboard</li>
+          <li>WhatsApp support priority</li><li>Custom resource requests</li>
         </ul>
         <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="openWA()">Contact on WhatsApp</button>
       </div>
@@ -807,41 +530,38 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
   <div class="sec" id="resources">
     <div class="sec-head">
       <div class="sec-title">Resource Library</div>
-      <div class="sec-sub" id="resCount">Loading resources…</div>
+      <div class="sec-sub" id="resCount">Loading resources&#x2026;</div>
     </div>
     <div class="sub-banner" id="subBanner" style="display:none">
       <div class="sb-l">
         <div class="sb-dot"></div>
-        <div>
-          <div class="sb-t">Full Access Active</div>
-          <div class="sb-d">Your subscription expires <span id="subExpiry">—</span></div>
-        </div>
+        <div><div class="sb-t">Full Access Active</div><div class="sb-d">Your subscription expires <span id="subExpiry">&#x2014;</span></div></div>
       </div>
       <button class="btn btn-outline btn-sm">Manage Plan</button>
     </div>
     <div class="teacher-profile-badge" id="teacherBadge" style="display:none">
-      <div class="tpb-icon">🍎</div>
+      <div class="tpb-icon">&#x1F34E;</div>
       <div class="tpb-info">
         <div class="tpb-name" id="tpbName">Welcome back</div>
         <div class="tpb-tags" id="tpbTags"></div>
       </div>
     </div>
     <div class="auth-notice" id="authNotice" style="display:none">
-      <span class="auth-notice-icon">🔒</span>
+      <span class="auth-notice-icon">&#x1F512;</span>
       <div class="auth-notice-text">
         <strong>Premium resources require a subscription.</strong><br>
-        Free resources below download instantly — no account needed.
+        Free resources below download instantly &#x2014; no account needed.
         <button class="btn btn-outline btn-sm" style="margin-left:10px;vertical-align:middle" onclick="openAuthModal('premium')">Sign In / Subscribe</button>
       </div>
     </div>
     <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" type="text" placeholder="Search — e.g. 'Grade 8 Math lesson plan'" oninput="filterRes()" id="searchIn" aria-label="Search resources">
+      <span class="search-icon">&#x1F50D;</span>
+      <input class="search-input" type="text" placeholder="Search &#x2014; e.g. 'Grade 8 Math lesson plan'" oninput="filterRes()" id="searchIn" aria-label="Search resources">
     </div>
     <div class="filters" id="gradeFilters" role="group" aria-label="Filter by grade">
       <button class="fchip active" onclick="setFilter('grade','all',this)">All Grades</button>
-      <button class="fchip" onclick="setFilter('grade','6-9',this)">Gr 6–9 (CBC)</button>
-      <button class="fchip" onclick="setFilter('grade','10-13',this)">Form 1–4 (CBE)</button>
+      <button class="fchip" onclick="setFilter('grade','6-9',this)">Gr 6&#x2013;9 (CBC)</button>
+      <button class="fchip" onclick="setFilter('grade','10-13',this)">Form 1&#x2013;4 (CBE)</button>
     </div>
     <div class="filters" id="typeFilters" style="margin-bottom:24px" role="group" aria-label="Filter by type">
       <button class="fchip active" onclick="setFilter('type','all',this)">All Types</button>
@@ -857,30 +577,30 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
       <div class="skel-card"><div class="skeleton" style="height:40px;width:40px;border-radius:10px;margin-bottom:14px"></div><div class="skeleton" style="width:75%"></div><div class="skeleton" style="width:65%"></div><div class="skeleton" style="width:88%;height:40px;margin-top:8px"></div></div>
     </div>
   </div>
-
 </div>
 </main>
 
-<!-- FOOTER -->
 <footer>
-  <!-- Share row -->
   <div class="share-row" style="margin-bottom:16px">
     <span class="share-label">Share with colleagues:</span>
-    <a href="https://wa.me/?text=Kenya%20teachers%20%E2%80%94%20Smart%20Resource%20Hub%20has%20CBC%20%26%20CBE%20lesson%20plans%2C%20exam%20papers%20%26%20schemes%20from%20just%20Ksh%2099%2Fterm.%20Check%20it%20out%3A%20https%3A%2F%2Fresource-hub.bett.website" target="_blank" rel="noopener" class="btn btn-green btn-sm">📲 Share on WhatsApp</a>
-    <a href="https://t.me/share/url?url=https%3A%2F%2Fresource-hub.bett.website&text=Kenya%20CBC%20%26%20CBE%20teaching%20resources%20%E2%80%94%20lesson%20plans%2C%20exam%20papers%2C%20schemes%20of%20work%20from%20Ksh%2099%2Fterm%20via%20M-Pesa." target="_blank" rel="noopener" class="btn btn-tg btn-sm">✈️ Share on Telegram</a>
-    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fresource-hub.bett.website&text=Kenya%20teachers%20%E2%80%94%20CBC%20%26%20CBE%20lesson%20plans%2C%20exam%20papers%20%26%20schemes%20from%20Ksh%2099%2Fterm%20via%20M-Pesa." target="_blank" rel="noopener" class="btn btn-sm" style="background:#1d9bf0;color:#fff;border:none">🐦 Share on X</a>
+    <a href="https://wa.me/?text=Kenya%20teachers%20%E2%80%94%20Smart%20Resource%20Hub%20has%20CBC%20%26%20CBE%20lesson%20plans%2C%20exam%20papers%20%26%20schemes%20from%20just%20Ksh%2099%2Fterm.%20Check%20it%20out%3A%20https%3A%2F%2Fresource-hub.bett.website" target="_blank" rel="noopener" class="btn btn-green btn-sm">&#x1F4F2; Share on WhatsApp</a>
+    <a href="https://t.me/share/url?url=https%3A%2F%2Fresource-hub.bett.website&text=Kenya%20CBC%20%26%20CBE%20teaching%20resources%20%E2%80%94%20lesson%20plans%2C%20exam%20papers%2C%20schemes%20of%20work%20from%20Ksh%2099%2Fterm%20via%20M-Pesa." target="_blank" rel="noopener" class="btn btn-tg btn-sm">&#x2708;&#xFE0F; Share on Telegram</a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fresource-hub.bett.website&text=Kenya%20teachers%20%E2%80%94%20CBC%20%26%20CBE%20lesson%20plans%2C%20exam%20papers%20%26%20schemes%20from%20Ksh%2099%2Fterm%20via%20M-Pesa." target="_blank" rel="noopener" class="btn btn-sm" style="background:#1d9bf0;color:#fff;border:none">&#x1F426; Share on X</a>
   </div>
   <address style="font-style:normal">
-    <div class="ft">Smart Resource Hub · Built for Kenyan Schools · <a href="https://resource-hub.bett.website/" rel="author">bett.website</a> · <a href="https://wa.me/254715172815" rel="noopener">WhatsApp: 0715 172 815</a></div>
+    <div class="ft">Smart Resource Hub &#xB7; Built for Kenyan Schools &#xB7; <a href="https://resource-hub.bett.website/" rel="author">bett.website</a> &#xB7; <a href="https://wa.me/254715172815" rel="noopener">WhatsApp: 0715 172 815</a></div>
   </address>
-  <div class="ft" style="margin-top:6px">© 2026 Bett Emanuel. All rights reserved.</div>
+  <div class="ft" style="margin-top:6px">&#xA9; 2026 Bett Emanuel. All rights reserved.</div>
 </footer>
 
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
 <script>
+// ─────────────────────────────────────────────────────────────
+// PASTE THIS TO REPLACE THE ENTIRE <script> BLOCK IN index.html
+// (everything after the three Firebase <script src="..."> tags)
+// ─────────────────────────────────────────────────────────────
 firebase.initializeApp({
   apiKey:"AIzaSyDPZLbDio7OibE-FEXqFF1OdhM0qZc3yII",
   authDomain:"divine-treat-450709-b5.firebaseapp.com",
@@ -891,10 +611,15 @@ firebase.initializeApp({
   appId:"1:866518506476:web:e2d3618b61f88e1f6a3ec9",
   measurementId:"G-B82PF7LK3H"
 });
+const db=firebase.firestore(),auth=firebase.auth(),BACKEND='https://cbe-y1zb.onrender.com';
 
-const db=firebase.firestore();
-const auth=firebase.auth();
-const BACKEND='https://cbe-y1zb.onrender.com';
+// ── DEBUG helper ──────────────────────────────────────────────
+const D = {
+  log:  (...a) => console.log('%c[SRH]',   'color:#3b82f6;font-weight:700', ...a),
+  ok:   (...a) => console.log('%c[SRH ✓]', 'color:#10b981;font-weight:700', ...a),
+  warn: (...a) => console.warn('%c[SRH ⚠]','color:#f59e0b;font-weight:700', ...a),
+  err:  (...a) => console.error('%c[SRH ✗]','color:#ef4444;font-weight:700', ...a),
+};
 
 const SUBJECTS_CBC=[
   {id:'math',label:'Mathematics',emoji:'📐'},{id:'eng',label:'English',emoji:'📝'},
@@ -903,84 +628,66 @@ const SUBJECTS_CBC=[
   {id:'ire',label:'IRE',emoji:'☪️'},{id:'pre',label:'PRE',emoji:'🙏'},
   {id:'biz',label:'Business Studies',emoji:'💼'},{id:'agri',label:'Agriculture',emoji:'🌾'},
   {id:'hc',label:'Home Science',emoji:'🏠'},{id:'art',label:'Art & Craft',emoji:'🎨'},
-  {id:'music',label:'Music',emoji:'🎵'},{id:'pe',label:'P.H.E',emoji:'⚽'},{id:'ict',label:'ICT',emoji:'💻'},
+  {id:'music',label:'Music',emoji:'🎵'},{id:'pe',label:'P.H.E',emoji:'⚽'},{id:'ict',label:'ICT',emoji:'💻'}
 ];
 const SUBJECTS_CBE=[
-  {id:'eng',label:'English',emoji:'📝',core:true},{id:'kisw',label:'Kiswahili',emoji:'🗣️',core:true},
-  {id:'math',label:'Mathematics',emoji:'📐',core:true},{id:'phy',label:'Physics',emoji:'⚡'},
+  {id:'eng',label:'English',emoji:'📝'},{id:'kisw',label:'Kiswahili',emoji:'🗣️'},
+  {id:'math',label:'Mathematics',emoji:'📐'},{id:'phy',label:'Physics',emoji:'⚡'},
   {id:'chem',label:'Chemistry',emoji:'🧪'},{id:'bio',label:'Biology',emoji:'🧬'},
   {id:'hist',label:'History',emoji:'📜'},{id:'geo',label:'Geography',emoji:'🗺️'},
   {id:'cre',label:'CRE',emoji:'✝️'},{id:'ire',label:'IRE',emoji:'☪️'},
   {id:'biz',label:'Business Studies',emoji:'💼'},{id:'agri',label:'Agriculture',emoji:'🌾'},
   {id:'hc',label:'Home Science',emoji:'🏠'},{id:'ict',label:'Computer Studies',emoji:'💻'},
-  {id:'art',label:'Art & Design',emoji:'🎨'},{id:'music',label:'Music',emoji:'🎵'},{id:'pe',label:'P.H.E',emoji:'⚽'},
+  {id:'art',label:'Art & Design',emoji:'🎨'},{id:'music',label:'Music',emoji:'🎵'},{id:'pe',label:'P.H.E',emoji:'⚽'}
 ];
 
 let allResources=[],activeFilters={grade:'all',type:'all'},subscribed=false,
     currentUid=null,currentUser=null,selectedPlan=null,paymentId=null,
-    pollInterval=null,pendingResourceId=null,currentSignupStep=1,
+    pollInterval=null,firestoreUnsub=null,
+    pendingResourceId=null,currentSignupStep=1,
     selectedSubjects=new Set(),teacherProfile=null;
 
-function toggleTheme(){
-  const html=document.documentElement;
-  html.dataset.theme=html.dataset.theme==='dark'?'light':'dark';
-  localStorage.setItem('cbe-theme',html.dataset.theme);
-}
-(function(){const saved=localStorage.getItem('cbe-theme');if(saved)document.documentElement.dataset.theme=saved;})();
+function toggleTheme(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';localStorage.setItem('cbe-theme',h.dataset.theme);}
+(function(){const s=localStorage.getItem('cbe-theme');if(s)document.documentElement.dataset.theme=s;})();
 
-// ── FIX 3d: onAuthStateChanged with post-refresh recovery ──
 auth.onAuthStateChanged(async user=>{
+  D.log('[AUTH] state changed →', user ? `uid=${user.uid} email=${user.email} anon=${user.isAnonymous}` : 'signed out');
   currentUser=user;currentUid=user?user.uid:null;
   updateAuthBtn();
   if(user){await checkSubscription(user.uid);await loadTeacherProfile(user.uid);}
-
-  // Post-refresh recovery: if user paid as anonymous and refreshed the page,
-  // try to recover their subscription using the stored phone number
-  if (!subscribed) {
-    const storedPhone = sessionStorage.getItem('srh_pay_phone');
-    const storedUid   = sessionStorage.getItem('srh_pay_uid');
-    if (storedPhone) {
-      try {
-        const uid = (user && currentUid) || storedUid || '';
-        const res  = await fetch(
-          `${BACKEND}/api/subscriptions/status?uid=${uid}&phone=${encodeURIComponent(storedPhone)}`
-        );
-        const data = await res.json();
-        if (data.active) {
-          subscribed = true;
-          showSubBanner(data.expiresAt);
-          sessionStorage.removeItem('srh_pay_phone');
-          sessionStorage.removeItem('srh_pay_uid');
-        }
-      } catch (_) {}
+  if(!subscribed){
+    const sp=sessionStorage.getItem('srh_pay_phone'),su=sessionStorage.getItem('srh_pay_uid');
+    if(sp){
+      D.log('[AUTH] session has pending payment — phone:', sp, 'uid:', su);
+      try{
+        const uid=(user&&currentUid)||su||'';
+        const r=await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}&phone=${encodeURIComponent(sp)}`);
+        const d=await r.json();
+        D.log('[AUTH] session payment check response:', d);
+        if(d.active){subscribed=true;showSubBanner(d.expiresAt);sessionStorage.removeItem('srh_pay_phone');sessionStorage.removeItem('srh_pay_uid');D.ok('[AUTH] subscription restored from session');}
+      }catch(e){D.err('[AUTH] session check failed:', e.message);}
     }
   }
-
   loadResources();
 });
 
 function updateAuthBtn(){
   const btn=document.getElementById('authBtn');if(!btn)return;
-  if(currentUser&&!currentUser.isAnonymous){
-    const name=currentUser.displayName||currentUser.email||'Account';
-    btn.textContent='👤 '+name.split(' ')[0];btn.onclick=doSignOut;
-  }else{btn.textContent='Sign In';btn.onclick=handleAuthBtn;}
+  if(currentUser&&!currentUser.isAnonymous){const n=currentUser.displayName||currentUser.email||'Account';btn.textContent='👤 '+n.split(' ')[0];btn.onclick=doSignOut;}
+  else{btn.textContent='Sign In';btn.onclick=handleAuthBtn;}
 }
 function handleAuthBtn(){openAuthModal();}
 
 async function doSignOut(){
-  await auth.signOut();
-  subscribed=false;currentUid=null;currentUser=null;teacherProfile=null;
+  await auth.signOut();subscribed=false;currentUid=null;currentUser=null;teacherProfile=null;
   document.getElementById('subBanner').style.display='none';
   document.getElementById('teacherBadge').style.display='none';
   renderResources();toast('Signed out','info');updateAuthBtn();
 }
 
 async function loadTeacherProfile(uid){
-  try{
-    const doc=await db.collection('users').doc(uid).get();
-    if(doc.exists){teacherProfile=doc.data().teacherProfile||null;if(teacherProfile)renderTeacherBadge();}
-  }catch(e){console.warn('[Profile]',e.message);}
+  try{const doc=await db.collection('users').doc(uid).get();if(doc.exists){teacherProfile=doc.data().teacherProfile||null;if(teacherProfile)renderTeacherBadge();}}
+  catch(e){D.warn('[PROFILE] load failed:', e.message);}
 }
 
 function renderTeacherBadge(){
@@ -991,58 +698,40 @@ function renderTeacherBadge(){
   document.getElementById('tpbName').textContent=name;
   const tags=document.getElementById('tpbTags');tags.innerHTML='';
   if(teacherProfile.gradeFrom&&teacherProfile.gradeTo){
-    const grTag=document.createElement('span');grTag.className='tpb-tag';
-    grTag.textContent=gradeLabel(teacherProfile.gradeFrom)+' – '+gradeLabel(teacherProfile.gradeTo);
-    tags.appendChild(grTag);
+    const g=document.createElement('span');g.className='tpb-tag';
+    g.textContent=gradeLabel(teacherProfile.gradeFrom)+' – '+gradeLabel(teacherProfile.gradeTo);tags.appendChild(g);
   }
   if(teacherProfile.subjects&&teacherProfile.subjects.length){
     teacherProfile.subjects.forEach(sid=>{
       const subj=[...SUBJECTS_CBC,...SUBJECTS_CBE].find(s=>s.id===sid);if(!subj)return;
-      const t=document.createElement('span');t.className='tpb-tag purple';
-      t.textContent=subj.emoji+' '+subj.label;tags.appendChild(t);
+      const t=document.createElement('span');t.className='tpb-tag purple';t.textContent=subj.emoji+' '+subj.label;tags.appendChild(t);
     });
   }
 }
+function gradeLabel(g){const n=parseInt(g);if(n<=9)return 'Grade '+n;return{10:'Form 1',11:'Form 2',12:'Form 3',13:'Form 4'}[n]||('Gr '+n);}
 
-function gradeLabel(g){
-  const n=parseInt(g);if(n<=9)return 'Grade '+n;
-  return{10:'Form 1',11:'Form 2',12:'Form 3',13:'Form 4'}[n]||('Gr '+n);
-}
-
-// ── FIX 3a: checkSubscription reads from 'subscribers' collection ──
-async function checkSubscription(uid) {
-  try {
-    // Check 'subscribers' collection (matches what the webhook writes)
-    const snap = await db.collection('subscribers').doc(uid).get();
-
-    if (snap.exists) {
-      const sub       = snap.data();
-      const expiresAt = sub.expiresAt ? new Date(sub.expiresAt) : null;
-      const active    = expiresAt ? expiresAt > new Date() : !!sub.unlockedAt;
-      if (active) {
-        subscribed = true;
-        showSubBanner(sub.expiresAt);
-      }
-      return { active, expiresAt: sub.expiresAt, plan: sub.planKey };
+async function checkSubscription(uid){
+  D.log('[SUB] checking subscription for uid:', uid);
+  try{
+    const snap=await db.collection('subscribers').doc(uid).get();
+    D.log('[SUB] Firestore doc exists:', snap.exists, snap.exists ? snap.data() : '(none)');
+    if(snap.exists){
+      const sub=snap.data();const exp=sub.expiresAt?new Date(sub.expiresAt):null;
+      const active=exp?exp>new Date():!!sub.unlockedAt;
+      D.log('[SUB] Firestore → active:', active, 'expiresAt:', sub.expiresAt, 'now:', new Date().toISOString());
+      if(active){subscribed=true;showSubBanner(sub.expiresAt);return{active,expiresAt:sub.expiresAt,plan:sub.planKey};}
     }
-
-    // Fallback: call the backend status API (handles phone-based lookup)
-    const res  = await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}`);
-    const data = await res.json();
-    if (data.active) {
-      subscribed = true;
-      showSubBanner(data.expiresAt);
-    }
-    return data;
-
-  } catch (e) {
-    console.warn('[checkSubscription]', e.message);
-    return { active: false };
-  }
+    D.log('[SUB] falling back to REST status check');
+    const r=await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}`);
+    const d=await r.json();
+    D.log('[SUB] REST response:', d);
+    if(d.active){subscribed=true;showSubBanner(d.expiresAt);}
+    return d;
+  }catch(e){D.err('[SUB] checkSubscription error:', e.message);return{active:false};}
 }
 
 function showSubBanner(expiresAt){
-  const banner=document.getElementById('subBanner');if(banner)banner.style.display='flex';
+  const b=document.getElementById('subBanner');if(b)b.style.display='flex';
   const exp=new Date(expiresAt);
   const el=document.getElementById('subExpiry');
   if(el)el.textContent=exp.toLocaleDateString('en-KE',{day:'numeric',month:'long',year:'numeric'});
@@ -1052,38 +741,33 @@ async function loadResources(){
   try{
     const snap=await db.collection('resources').orderBy('createdAt','desc').get();
     allResources=snap.docs.map(d=>({id:d.id,...d.data()}));
-    const total=document.getElementById('statTotal');if(total)total.textContent=allResources.length||'0';
-    const hasPremium=allResources.some(r=>!r.free);
+    const tot=document.getElementById('statTotal');if(tot)tot.textContent=allResources.length||'0';
+    const hasPrem=allResources.some(r=>!r.free);
     const notice=document.getElementById('authNotice');
-    if(notice)notice.style.display=(hasPremium&&!subscribed)?'flex':'none';
+    if(notice)notice.style.display=(hasPrem&&!subscribed)?'flex':'none';
     renderResources();
   }catch(e){
-    document.getElementById('resGrid').innerHTML=`<div style="grid-column:1/-1"><div class="empty-msg"><div class="ei">⚠️</div><p>Could not load resources — please refresh the page.</p></div></div>`;
+    document.getElementById('resGrid').innerHTML='<div style="grid-column:1/-1"><div class="empty-msg"><div class="ei">⚠️</div><p>Could not load resources — please refresh the page.</p></div></div>';
     document.getElementById('resCount').textContent='Could not load resources';
   }
 }
 
 window._resMap={};
-
 function renderResources(){
   const q=(document.getElementById('searchIn')?.value||'').toLowerCase();
   const{grade,type}=activeFilters;
   let filtered=allResources.filter(r=>{
-    const gNum=parseInt(r.gradeNum||(r.grades==='1-9'?0:r.grades));
-    let gMatch=grade==='all';
-    if(grade==='6-9')gMatch=gNum>=6&&gNum<=9;
-    if(grade==='10-13')gMatch=gNum>=10&&gNum<=13;
-    if(grade==='all')gMatch=true;
-    const tMatch=type==='all'||r.type===type;
-    const qMatch=!q||(r.title||'').toLowerCase().includes(q)||(r.desc||'').toLowerCase().includes(q)||(r.subject||'').toLowerCase().includes(q);
-    return gMatch&&tMatch&&qMatch;
+    const gN=parseInt(r.gradeNum||(r.grades==='1-9'?0:r.grades));
+    let gM=grade==='all';
+    if(grade==='6-9')gM=gN>=6&&gN<=9;
+    if(grade==='10-13')gM=gN>=10&&gN<=13;
+    if(grade==='all')gM=true;
+    const tM=type==='all'||r.type===type;
+    const qM=!q||(r.title||'').toLowerCase().includes(q)||(r.desc||'').toLowerCase().includes(q)||(r.subject||'').toLowerCase().includes(q);
+    return gM&&tM&&qM;
   });
   if(teacherProfile&&teacherProfile.subjects&&teacherProfile.subjects.length){
-    filtered.sort((a,b)=>{
-      const aM=teacherProfile.subjects.includes(a.subjectId);
-      const bM=teacherProfile.subjects.includes(b.subjectId);
-      return(bM?1:0)-(aM?1:0);
-    });
+    filtered.sort((a,b)=>{const aM=teacherProfile.subjects.includes(a.subjectId);const bM=teacherProfile.subjects.includes(b.subjectId);return(bM?1:0)-(aM?1:0);});
   }
   document.getElementById('resCount').textContent=`Showing ${filtered.length} resource${filtered.length!==1?'s':''}`;
   if(!filtered.length){
@@ -1092,15 +776,14 @@ function renderResources(){
   }
   window._resMap={};filtered.forEach(r=>{window._resMap[r.id]=r;});
   document.getElementById('resGrid').innerHTML=filtered.map(r=>{
-    const canDl=r.free||subscribed;
-    const icon=r.icon||'📄';
-    const isTeacherSubject=teacherProfile&&teacherProfile.subjects&&teacherProfile.subjects.includes(r.subjectId);
-    return`<div class="res-card${canDl?'':' locked'}" ${isTeacherSubject?'style="border-color:rgba(139,92,246,.3)"':''}>
+    const canDl=r.free||subscribed;const icon=r.icon||'📄';
+    const iTS=teacherProfile&&teacherProfile.subjects&&teacherProfile.subjects.includes(r.subjectId);
+    return`<div class="res-card${canDl?'':' locked'}" ${iTS?'style="border-color:rgba(139,92,246,.3)"':''}>
       <div class="res-top">
         <div class="res-icon" style="background:${r.free?'rgba(16,185,129,.12)':'rgba(245,158,11,.1)'}">${icon}</div>
         <div class="res-badges">
           <span class="badge badge-grade">Gr ${r.grades||'—'}</span>
-          ${isTeacherSubject?'<span class="badge" style="background:rgba(139,92,246,.1);color:var(--purple);border:1px solid rgba(139,92,246,.2)">Your Subject</span>':''}
+          ${iTS?'<span class="badge" style="background:rgba(139,92,246,.1);color:var(--purple);border:1px solid rgba(139,92,246,.2)">Your Subject</span>':''}
           ${r.free?'<span class="badge badge-free">Free</span>':'<span class="badge badge-premium">Premium</span>'}
           ${!canDl?'<span class="badge badge-lock">🔒</span>':''}
         </div>
@@ -1113,12 +796,7 @@ function renderResources(){
           ${r.size?`<span>💾 ${r.size}</span>`:''}
           ${r.format?`<span style="background:var(--bg3);padding:1px 6px;border-radius:4px;font-size:10px;color:var(--text2)">${r.format}</span>`:''}
         </div>
-        ${r.free
-          ?`<button class="dl-btn dl-free" onclick="downloadFreeById('${r.id}')">⬇ Download</button>`
-          :canDl
-            ?`<button class="dl-btn dl-free" onclick="downloadPremium('${r.id}','${(r.title||'').replace(/'/g,"\\'")}')">⬇ Download</button>`
-            :`<button class="dl-btn" style="background:var(--gold);color:#fff;cursor:pointer" onclick="promptUpgrade('${r.id}')">⭐ Unlock</button>`
-        }
+        ${r.free?`<button class="dl-btn dl-free" onclick="downloadFreeById('${r.id}')">⬇ Download</button>`:canDl?`<button class="dl-btn dl-free" onclick="downloadPremium('${r.id}','${(r.title||'').replace(/'/g,"\\'")}')">⬇ Download</button>`:`<button class="dl-btn" style="background:var(--gold);color:#fff;cursor:pointer" onclick="promptUpgrade('${r.id}')">⭐ Unlock</button>`}
       </div>
     </div>`;
   }).join('');
@@ -1126,87 +804,49 @@ function renderResources(){
 
 function setFilter(key,val,el){
   activeFilters[key]=val;
-  const group=key==='grade'?'gradeFilters':'typeFilters';
-  document.querySelectorAll(`#${group} .fchip`).forEach(c=>c.classList.remove('active'));
+  const g=key==='grade'?'gradeFilters':'typeFilters';
+  document.querySelectorAll(`#${g} .fchip`).forEach(c=>c.classList.remove('active'));
   el.classList.add('active');renderResources();
 }
 function filterRes(){renderResources();}
 
-function downloadFreeById(resourceId){
-  const r=window._resMap[resourceId];if(!r){toast('Resource not found','err');return;}
-  downloadFree(resourceId,r.fileUrl||'',r.title||'');
-}
+function downloadFreeById(id){const r=window._resMap[id];if(!r){toast('Resource not found','err');return;}downloadFree(id,r.fileUrl||'',r.title||'');}
 
 async function downloadFree(resourceId,fileUrl,title){
-  if(fileUrl&&fileUrl.startsWith('http')&&!fileUrl.includes('r2.cloudflarestorage')){
-    window.open(fileUrl,'_blank');toast(`⬇ Downloading: ${(title||'').substring(0,40)}`,'ok');return;
-  }
+  if(fileUrl&&fileUrl.startsWith('http')&&!fileUrl.includes('r2.cloudflarestorage')){window.open(fileUrl,'_blank');toast(`⬇ Downloading: ${(title||'').substring(0,40)}`,'ok');return;}
   try{
     toast('Preparing your branded copy…','info');
-    const downloaderName=(currentUser&&!currentUser.isAnonymous)?(currentUser.displayName||currentUser.email||''):'';
-    const downloaderPhone=document.getElementById('payPhone')?.value?.trim()||'';
-    const res=await fetch(`${BACKEND}/api/resources/download-free`,{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({resourceId,downloaderName,downloaderPhone}),
-    });
-    if(!res.ok){
-      const data=await res.json().catch(()=>({}));
-      if(data.code==='SUBSCRIPTION_REQUIRED'){
-        toast('This resource requires a subscription','info');
-        document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;
-      }
-      throw new Error(data.error||`Server error ${res.status}`);
-    }
-    const blob=await res.blob();
-    const blobUrl=URL.createObjectURL(blob);
-    const a=document.createElement('a');
-    a.href=blobUrl;a.download=(title||'resource').replace(/[^\w\s-]/g,'')+'.pdf';
-    document.body.appendChild(a);a.click();
-    setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
+    // ── FIX: closing quote was misplaced (was: ||') now: ||'') ──
+    const dn=(currentUser&&!currentUser.isAnonymous)?(currentUser.displayName||currentUser.email||''):'';
+    const dp=document.getElementById('payPhone')?.value?.trim()||'';
+    const res=await fetch(`${BACKEND}/api/resources/download-free`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({resourceId,downloaderName:dn,downloaderPhone:dp})});
+    if(!res.ok){const d=await res.json().catch(()=>({}));if(d.code==='SUBSCRIPTION_REQUIRED'){toast('This resource requires a subscription','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;}throw new Error(d.error||`Server error ${res.status}`);}
+    const blob=await res.blob();const blobUrl=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=blobUrl;a.download=(title||'resource').replace(/[^\w\s-]/g,'')+'.pdf';
+    document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
     toast(`⬇ Downloaded: ${(title||'').substring(0,40)}`,'ok');
   }catch(e){toast('Download failed — please try again','err');}
 }
 
 async function downloadPremium(resourceId,title){
-  if(!currentUid||(currentUser&&currentUser.isAnonymous)){
-    pendingResourceId=resourceId;openAuthModal('premium');toast('Sign in to download premium resources','info');return;
-  }
+  if(!currentUid||(currentUser&&currentUser.isAnonymous)){pendingResourceId=resourceId;openAuthModal('premium');toast('Sign in to download premium resources','info');return;}
   try{
     toast('Preparing your branded copy…','info');
     const token=await currentUser.getIdToken();
-    const res=await fetch(`${BACKEND}/api/resources/download`,{
-      method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},
-      body:JSON.stringify({resourceId}),
-    });
-    if(!res.ok){
-      const data=await res.json().catch(()=>({}));
-      if(data.code==='SUBSCRIPTION_REQUIRED'){
-        toast('Subscription required — choose a plan below','info');
-        document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;
-      }
-      throw new Error(data.error||`Server error ${res.status}`);
-    }
-    const blob=await res.blob();
-    const blobUrl=URL.createObjectURL(blob);
-    const a=document.createElement('a');
-    a.href=blobUrl;a.download=(title||'resource').replace(/[^\w\s-]/g,'')+'.pdf';
-    document.body.appendChild(a);a.click();
-    setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
+    const res=await fetch(`${BACKEND}/api/resources/download`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},body:JSON.stringify({resourceId})});
+    if(!res.ok){const d=await res.json().catch(()=>({}));if(d.code==='SUBSCRIPTION_REQUIRED'){toast('Subscription required — choose a plan below','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;}throw new Error(d.error||`Server error ${res.status}`);}
+    const blob=await res.blob();const blobUrl=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=blobUrl;a.download=(title||'resource').replace(/[^\w\s-]/g,'')+'.pdf';
+    document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
     toast(`⬇ Downloaded: ${(title||'').substring(0,40)}`,'ok');
   }catch(e){toast(`Download failed: ${e.message}`,'err');}
 }
 
-function promptUpgrade(resourceId){
-  pendingResourceId=resourceId;
-  toast('Subscribe to unlock this premium resource','info');
-  document.getElementById('plans').scrollIntoView({behavior:'smooth'});
-}
+function promptUpgrade(id){pendingResourceId=id;toast('Subscribe to unlock this premium resource','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});}
 
-function openAuthModal(context){
-  document.getElementById('authModal').classList.add('open');
-  document.getElementById('authModalTitle').textContent=context==='premium'?'Sign in to download':'Sign in';
-}
+function openAuthModal(ctx){document.getElementById('authModal').classList.add('open');document.getElementById('authModalTitle').textContent=ctx==='premium'?'Sign in to download':'Sign in';}
 function closeAuthModal(){document.getElementById('authModal').classList.remove('open');pendingResourceId=null;}
+
 function switchTab(tab){
   document.getElementById('formSignIn').style.display=tab==='signin'?'':'none';
   document.getElementById('formSignUp').style.display=tab==='signup'?'':'none';
@@ -1214,25 +854,19 @@ function switchTab(tab){
   document.getElementById('tabSignUp').classList.toggle('active',tab==='signup');
   if(tab==='signup'){currentSignupStep=1;selectedSubjects.clear();showSignupStep(1);}
 }
-
 function showSignupStep(step){
   currentSignupStep=step;
   [1,2,3].forEach(n=>{
     document.getElementById('signupStep'+n).style.display=n===step?'':'none';
-    const tab=document.getElementById('stepTab'+n);
-    tab.classList.remove('active','done');
-    if(n<step)tab.classList.add('done');
-    if(n===step)tab.classList.add('active');
+    const tab=document.getElementById('stepTab'+n);tab.classList.remove('active','done');
+    if(n<step)tab.classList.add('done');if(n===step)tab.classList.add('active');
   });
 }
 function goToStep(n){showSignupStep(n);}
-
 function goToStep2(){
-  const name=document.getElementById('suName').value.trim();
-  const email=document.getElementById('suEmail').value.trim();
-  const pass=document.getElementById('suPass').value;
-  const role=document.getElementById('suRole').value;
-  const school=document.getElementById('suSchool').value.trim();
+  const name=document.getElementById('suName').value.trim(),email=document.getElementById('suEmail').value.trim(),
+        pass=document.getElementById('suPass').value,role=document.getElementById('suRole').value,
+        school=document.getElementById('suSchool').value.trim();
   if(!name){toast('Enter your full name','err');return;}
   if(!email){toast('Enter your email address','err');return;}
   if(!pass||pass.length<6){toast('Password must be at least 6 characters','err');return;}
@@ -1241,55 +875,35 @@ function goToStep2(){
   showSignupStep(2);
 }
 function onRoleChange(){}
-
 function onGradeChange(){
-  const from=parseInt(document.getElementById('gradeFrom').value);
-  const to=parseInt(document.getElementById('gradeTo').value);
-  const infoBox=document.getElementById('gradeInfoBox');
-  const limitNote=document.getElementById('subjectLimitNote');
-  if(!from||!to){infoBox.style.display='none';limitNote.style.display='none';return;}
-  if(to<from){
-    toast('The "To" grade must be equal to or higher than "From"','err');
-    document.getElementById('gradeTo').value='';
-    infoBox.style.display='none';limitNote.style.display='none';return;
-  }
+  const from=parseInt(document.getElementById('gradeFrom').value),to=parseInt(document.getElementById('gradeTo').value);
+  const ib=document.getElementById('gradeInfoBox'),ln=document.getElementById('subjectLimitNote');
+  if(!from||!to){ib.style.display='none';ln.style.display='none';return;}
+  if(to<from){toast('The "To" grade must be equal to or higher than "From"','err');document.getElementById('gradeTo').value='';ib.style.display='none';ln.style.display='none';return;}
   const labels=[];for(let g=from;g<=to;g++)labels.push(gradeLabel(g));
-  infoBox.style.display='';
-  document.getElementById('gradeInfoText').innerHTML=`You'll teach: <strong>${labels.join(', ')}</strong>`;
-  const maxSubj=getMaxSubjects(from,to);
-  const hasCBC=from<=9,hasCBE=to>=10;
-  limitNote.style.display='';
-  let limitMsg='';
-  if(hasCBC&&!hasCBE)limitMsg=`Grade 6–9 (Junior Secondary): select up to <strong>${maxSubj} subjects</strong>.`;
-  else if(!hasCBC&&hasCBE)limitMsg=`Form 1–4 (Senior Secondary / CBE): select up to <strong>${maxSubj} subjects</strong>.`;
-  else limitMsg=`Mixed range — up to <strong>${maxSubj} subjects</strong> (based on your highest level).`;
-  document.getElementById('subjectLimitLabel').innerHTML=limitMsg;
+  ib.style.display='';document.getElementById('gradeInfoText').innerHTML=`You'll teach: <strong>${labels.join(', ')}</strong>`;
+  const maxSubj=getMaxSubjects(from,to),hasCBC=from<=9,hasCBE=to>=10;
+  ln.style.display='';
+  let lm='';
+  if(hasCBC&&!hasCBE)lm=`Grade 6–9 (Junior Secondary): select up to <strong>${maxSubj} subjects</strong>.`;
+  else if(!hasCBC&&hasCBE)lm=`Form 1–4 (Senior Secondary / CBE): select up to <strong>${maxSubj} subjects</strong>.`;
+  else lm=`Mixed range — up to <strong>${maxSubj} subjects</strong> (based on your highest level).`;
+  document.getElementById('subjectLimitLabel').innerHTML=lm;
 }
-
 function getMaxSubjects(from,to){return to>=10?2:3;}
-
 function goToStep3(){
-  const from=parseInt(document.getElementById('gradeFrom').value);
-  const to=parseInt(document.getElementById('gradeTo').value);
-  if(!from){toast('Select your starting grade','err');return;}
-  if(!to){toast('Select your ending grade','err');return;}
+  const from=parseInt(document.getElementById('gradeFrom').value),to=parseInt(document.getElementById('gradeTo').value);
+  if(!from){toast('Select your starting grade','err');return;}if(!to){toast('Select your ending grade','err');return;}
   if(to<from){toast('"To" grade must be ≥ "From" grade','err');return;}
   selectedSubjects.clear();buildSubjectGrid(from,to);showSignupStep(3);
 }
-
 function buildSubjectGrid(from,to){
-  const hasCBE=to>=10;
-  const maxSubj=getMaxSubjects(from,to);
-  const subjects=hasCBE?SUBJECTS_CBE:SUBJECTS_CBC;
-  document.getElementById('subjectPickerLabel').innerHTML=
-    `Select your subjects <span style="color:var(--red)">*</span>
-     <span style="color:var(--text3);font-weight:400;font-size:11px;text-transform:none;letter-spacing:0;margin-left:6px">max ${maxSubj} for ${hasCBE?'Form 1–4':'Grade 6–9'}</span>`;
+  const hasCBE=to>=10,maxSubj=getMaxSubjects(from,to),subjects=hasCBE?SUBJECTS_CBE:SUBJECTS_CBC;
+  document.getElementById('subjectPickerLabel').innerHTML=`Select your subjects <span style="color:var(--red)">*</span> <span style="color:var(--text3);font-weight:400;font-size:11px;text-transform:none;letter-spacing:0;margin-left:6px">max ${maxSubj} for ${hasCBE?'Form 1–4':'Grade 6–9'}</span>`;
   const labels=[];for(let g=from;g<=to;g++)labels.push(gradeLabel(g));
-  document.getElementById('step3GradeReminder').innerHTML=
-    `Teaching: <strong style="color:var(--accent)">${labels.join(', ')}</strong> · Max <strong style="color:var(--accent)">${maxSubj}</strong> subject${maxSubj>1?'s':''}`;
+  document.getElementById('step3GradeReminder').innerHTML=`Teaching: <strong style="color:var(--accent)">${labels.join(', ')}</strong> · Max <strong style="color:var(--accent)">${maxSubj}</strong> subject${maxSubj>1?'s':''}`;
   document.getElementById('subjMaxLabel').textContent=`max ${maxSubj}`;
-  const grid=document.getElementById('subjectGrid');
-  grid.innerHTML=subjects.map(s=>`
+  document.getElementById('subjectGrid').innerHTML=subjects.map(s=>`
     <button class="subj-chip" id="subj-${s.id}" onclick="toggleSubject('${s.id}',${maxSubj})">
       <span style="font-size:15px">${s.emoji}</span>
       <span style="flex:1;text-align:left;font-size:11.5px">${s.label}</span>
@@ -1297,76 +911,56 @@ function buildSubjectGrid(from,to){
     </button>`).join('');
   updateSubjectCounter(maxSubj);
 }
-
 function toggleSubject(id,maxSubj){
-  if(selectedSubjects.has(id)){
-    selectedSubjects.delete(id);document.getElementById('subj-'+id)?.classList.remove('selected');
-  }else{
-    if(selectedSubjects.size>=maxSubj){toast(`You can select up to ${maxSubj} subjects for your grade range`,'err');return;}
+  if(selectedSubjects.has(id)){selectedSubjects.delete(id);document.getElementById('subj-'+id)?.classList.remove('selected');}
+  else{
+    if(selectedSubjects.size>=maxSubj){toast(`You can select up to ${maxSubj} subjects`,'err');return;}
     selectedSubjects.add(id);document.getElementById('subj-'+id)?.classList.add('selected');
   }
   document.querySelectorAll('.subj-chip').forEach(chip=>{
-    const chipId=chip.id.replace('subj-','');
-    if(!selectedSubjects.has(chipId)&&selectedSubjects.size>=maxSubj)chip.classList.add('disabled');
+    const cid=chip.id.replace('subj-','');
+    if(!selectedSubjects.has(cid)&&selectedSubjects.size>=maxSubj)chip.classList.add('disabled');
     else chip.classList.remove('disabled');
   });
   updateSubjectCounter(maxSubj);
 }
-
 function updateSubjectCounter(maxSubj){
-  const count=selectedSubjects.size;
-  const pct=Math.min((count/maxSubj)*100,100);
+  const count=selectedSubjects.size,pct=Math.min((count/maxSubj)*100,100);
   document.getElementById('subjCountLabel').textContent=`${count} selected`;
-  const fill=document.getElementById('subjCountFill');
-  fill.style.width=pct+'%';
+  const fill=document.getElementById('subjCountFill');fill.style.width=pct+'%';
   fill.className='subj-counter-fill'+(count>=maxSubj?' full':'');
 }
-
 async function doSignUp(){
-  const from=parseInt(document.getElementById('gradeFrom').value);
-  const to=parseInt(document.getElementById('gradeTo').value);
-  const maxSubj=getMaxSubjects(from,to);
+  const from=parseInt(document.getElementById('gradeFrom').value),to=parseInt(document.getElementById('gradeTo').value),maxSubj=getMaxSubjects(from,to);
   if(selectedSubjects.size===0){toast('Please select at least 1 subject','err');return;}
-  const name=document.getElementById('suName').value.trim();
-  const email=document.getElementById('suEmail').value.trim();
-  const pass=document.getElementById('suPass').value;
-  const role=document.getElementById('suRole').value;
-  const school=document.getElementById('suSchool').value.trim();
-  const btn=document.getElementById('suBtn');
-  btn.disabled=true;btn.innerHTML='<div class="spin" style="width:14px;height:14px;border-width:2px"></div> Creating…';
+  const name=document.getElementById('suName').value.trim(),email=document.getElementById('suEmail').value.trim(),
+        pass=document.getElementById('suPass').value,role=document.getElementById('suRole').value,school=document.getElementById('suSchool').value.trim();
+  const btn=document.getElementById('suBtn');btn.disabled=true;btn.innerHTML='<div class="spin" style="width:14px;height:14px;border-width:2px"></div> Creating…';
   try{
     const cred=await auth.createUserWithEmailAndPassword(email,pass);
     await cred.user.updateProfile({displayName:name});
-    const profile={name,email,role,school,
-      teacherProfile:{gradeFrom:from,gradeTo:to,subjects:Array.from(selectedSubjects),maxSubjects:maxSubj},
-      createdAt:firebase.firestore.FieldValue.serverTimestamp()};
+    const profile={name,email,role,school,teacherProfile:{gradeFrom:from,gradeTo:to,subjects:Array.from(selectedSubjects),maxSubjects:maxSubj},createdAt:firebase.firestore.FieldValue.serverTimestamp()};
     await db.collection('users').doc(cred.user.uid).set(profile);
     teacherProfile=profile.teacherProfile;renderTeacherBadge();
-    closeAuthModal();toast('✅ Account created! Welcome, '+name.split(' ')[0],'ok');
-    renderResources();
+    closeAuthModal();toast('✅ Account created! Welcome, '+name.split(' ')[0],'ok');renderResources();
   }catch(e){toast('Sign up failed: '+e.message.replace('Firebase: ',''),'err');}
   finally{btn.disabled=false;btn.innerHTML='✅ Create Account';}
 }
-
 async function doSignIn(){
-  const email=document.getElementById('siEmail').value.trim();
-  const pass=document.getElementById('siPass').value;
+  const email=document.getElementById('siEmail').value.trim(),pass=document.getElementById('siPass').value;
   if(!email||!pass){toast('Enter email and password','err');return;}
   const btn=document.getElementById('siBtn');btn.disabled=true;btn.textContent='Signing in…';
   try{await auth.signInWithEmailAndPassword(email,pass);closeAuthModal();toast('✅ Signed in!','ok');}
   catch(e){toast('Sign in failed: '+e.message.replace('Firebase: ',''),'err');}
   finally{btn.disabled=false;btn.textContent='Sign In';}
 }
-
 async function doGoogleSignIn(){
   try{
     const provider=new firebase.auth.GoogleAuthProvider();
     const cred=await auth.signInWithPopup(provider);
     const doc=await db.collection('users').doc(cred.user.uid).get();
     closeAuthModal();toast('✅ Signed in with Google!','ok');
-    if(!doc.exists||!doc.data().teacherProfile){
-      setTimeout(()=>{switchTab('signup');openAuthModal();showSignupStep(2);toast('Please complete your teacher profile','info');},400);
-    }
+    if(!doc.exists||!doc.data().teacherProfile)setTimeout(()=>{switchTab('signup');openAuthModal();showSignupStep(2);toast('Please complete your teacher profile','info');},400);
   }catch(e){toast('Google sign in failed: '+e.message.replace('Firebase: ',''),'err');}
 }
 
@@ -1384,130 +978,193 @@ function openPlan(p){
   document.getElementById('payModal').classList.add('open');
   document.getElementById('payForm').style.display='';
   document.getElementById('stkStatus').style.display='none';
+  D.log('[PLAN] modal opened for plan:', p, pl);
 }
-function closeModal(){document.getElementById('payModal').classList.remove('open');stopPolling();}
-function resetModal(){
+
+function closeModal(){
+  D.log('[MODAL] closeModal() called — stopping poll + listener');
+  document.getElementById('payModal').classList.remove('open');
   stopPolling();
+  stopFirestoreListener();
+}
+
+function resetModal(){
+  stopPolling();stopFirestoreListener();
   document.getElementById('payForm').style.display='';
   document.getElementById('stkStatus').style.display='none';
   document.getElementById('stkBtn').disabled=false;
   document.getElementById('stkBtn').innerHTML='📱 Send STK Push';
+  D.log('[MODAL] reset to form view');
 }
 
-// ── FIX 3b: triggerSTK persists uid+phone in sessionStorage ──
-async function triggerSTK() {
-  const phone = document.getElementById('payPhone').value.trim();
-  const name  = document.getElementById('payName').value.trim();
-  if (!phone || phone.length < 9) { toast('Enter a valid phone number', 'err'); return; }
-  if (!name)                      { toast('Enter your full name', 'err');        return; }
-
-  let dp = phone.replace(/\D/g, '');
-  if (dp.startsWith('0')) dp = '254' + dp.substring(1);
-  const formatted = dp.replace(/(\d{3})(\d{3})(\d{3})(\d{3})/, '$1 $2 $3 $4');
-
-  const btn = document.getElementById('stkBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spin" style="width:14px;height:14px;border-width:2px"></div> Sending…';
-
-  try {
-    let uid = currentUid;
-    if (!uid) {
-      const cred = await auth.signInAnonymously();
-      uid        = cred.user.uid;
-      currentUid = uid;
-      currentUser = cred.user;
+// ── triggerSTK ─────────────────────────────────────────────────
+async function triggerSTK(){
+  const phone=document.getElementById('payPhone').value.trim();
+  const name=document.getElementById('payName').value.trim();
+  if(!phone||phone.length<9){toast('Enter a valid phone number','err');return;}
+  if(!name){toast('Enter your full name','err');return;}
+  let dp=phone.replace(/\D/g,'');
+  if(dp.startsWith('0'))dp='254'+dp.substring(1);
+  const formatted=dp.replace(/(\d{3})(\d{3})(\d{3})(\d{3})/,'$1 $2 $3 $4');
+  const btn=document.getElementById('stkBtn');
+  btn.disabled=true;btn.innerHTML='<div class="spin" style="width:14px;height:14px;border-width:2px"></div> Sending…';
+  try{
+    let uid=currentUid;
+    if(!uid){
+      D.log('[STK] no uid — signing in anonymously');
+      const cred=await auth.signInAnonymously();
+      uid=cred.user.uid;currentUid=uid;currentUser=cred.user;
+      D.ok('[STK] anonymous uid:', uid);
     }
+    D.log('[STK:init] uid:', uid, '| plan:', selectedPlan, '| planKey:', PLANS[selectedPlan].key, '| phone:', dp, '| name:', name);
+    sessionStorage.setItem('srh_pay_uid',uid);
+    sessionStorage.setItem('srh_pay_phone',dp);
 
-    // Persist phone + uid for post-refresh recovery
-    sessionStorage.setItem('srh_pay_uid',   uid);
-    sessionStorage.setItem('srh_pay_phone', dp);
-
-    const res  = await fetch(`${BACKEND}/api/subscriptions/initiate`, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ uid, planKey: PLANS[selectedPlan].key, phone, name }),
+    const payload={uid,planKey:PLANS[selectedPlan].key,phone:dp,name};
+    D.log('[STK:fetch] POST', `${BACKEND}/api/subscriptions/initiate`, payload);
+    const res=await fetch(`${BACKEND}/api/subscriptions/initiate`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Initiation failed');
+    const data=await res.json();
+    D.log('[STK:response] status:', res.status, 'body:', data);
 
-    paymentId = data.paymentId;
+    if(!res.ok){
+      D.err('[STK:error] server rejected initiation:', data);
+      throw new Error(data.error||'Initiation failed');
+    }
+    paymentId=data.paymentId;
+    D.ok('[STK] paymentId:', paymentId, '— showing waiting screen');
 
-    document.getElementById('payForm').style.display   = 'none';
-    document.getElementById('stkStatus').style.display = 'block';
-    document.getElementById('stkPhone').textContent    = formatted;
-    document.getElementById('pollMsg').textContent     = 'Waiting for payment confirmation…';
+    document.getElementById('payForm').style.display='none';
+    document.getElementById('stkStatus').style.display='block';
+    document.getElementById('stkPhone').textContent=formatted;
+    document.getElementById('pollMsg').textContent='Waiting for payment confirmation…';
+    toast('📱 STK Push sent to '+formatted,'info');
 
-    toast('📱 STK Push sent to ' + phone, 'info');
-    startPolling(uid, dp);   // pass normalized phone too
-
-  } catch (e) {
-    toast('Payment error: ' + e.message, 'err');
-    btn.disabled  = false;
-    btn.innerHTML = '📱 Send STK Push';
+    // Start both listeners in parallel
+    D.log('[STK] starting Firestore listener + REST poll for uid:', uid, 'phone:', dp);
+    startFirestoreListener(uid);
+    startPolling(uid,dp);
+  }catch(e){
+    D.err('[STK:catch]', e.message, e);
+    toast('Payment error: '+e.message,'err');
+    btn.disabled=false;btn.innerHTML='📱 Send STK Push';
   }
 }
 
-// ── FIX 3c: startPolling passes phone as fallback; onPaymentSuccess reloads user ──
-function startPolling(uid, phone) {
-  let attempts = 0, MAX = 45;
-  pollInterval = setInterval(async () => {
+// ── Firestore real-time listener ────────────────────────────────
+function startFirestoreListener(uid){
+  if(firestoreUnsub){D.warn('[FIRESTORE] detaching existing listener before re-attach');firestoreUnsub();firestoreUnsub=null;}
+  D.log('[FIRESTORE] attaching listener on subscribers/', uid);
+  firestoreUnsub=db.collection('subscribers').doc(uid)
+    .onSnapshot(snap=>{
+      D.log('[FIRESTORE:snapshot] exists:', snap.exists, '| data:', snap.exists ? snap.data() : '(empty)');
+      if(!snap.exists){D.log('[FIRESTORE:snapshot] doc does not exist yet — waiting');return;}
+      const sub=snap.data();
+      const exp=sub.expiresAt?new Date(sub.expiresAt):null;
+      const active=exp?exp>new Date():!!sub.unlockedAt;
+      D.log('[FIRESTORE:snapshot] active:', active, '| expiresAt:', sub.expiresAt, '| subscribed guard:', subscribed);
+      if(active){
+        if(subscribed){D.warn('[FIRESTORE:snapshot] already subscribed — skipping duplicate fire');return;}
+        D.ok('[FIRESTORE:snapshot] ✅ payment confirmed via Firestore — calling onPaymentSuccess');
+        stopPolling();stopFirestoreListener();
+        onPaymentSuccess(sub);
+      }
+    },err=>{D.err('[FIRESTORE:error]', err.code, err.message);});
+}
+function stopFirestoreListener(){
+  if(firestoreUnsub){D.log('[FIRESTORE] detaching listener');firestoreUnsub();firestoreUnsub=null;}
+}
+
+// ── REST polling fallback ───────────────────────────────────────
+function startPolling(uid,phone){
+  let attempts=0,MAX=60;
+  D.log('[POLL] starting — uid:', uid, 'phone:', phone, 'max attempts:', MAX);
+  pollInterval=setInterval(async()=>{
     attempts++;
-    try {
-      const phonePart = phone ? `&phone=${encodeURIComponent(phone)}` : '';
-      const res  = await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}${phonePart}`);
-      const data = await res.json();
-      if (data.active) {
-        stopPolling();
-        onPaymentSuccess(data);
+    D.log('[POLL:attempt]', attempts, '/', MAX);
+    try{
+      const pp=phone?`&phone=${encodeURIComponent(phone)}`:'';
+      const url=`${BACKEND}/api/subscriptions/status?uid=${uid}${pp}`;
+      const r=await fetch(url);
+      const d=await r.json();
+      D.log('[POLL:response]', attempts, d);
+      if(d.active){
+        D.ok('[POLL] ✅ payment confirmed via REST polling — attempt', attempts);
+        stopPolling();stopFirestoreListener();
+        onPaymentSuccess(d);
         return;
       }
-    } catch (_) {}
-
-    if (attempts >= MAX) {
-      stopPolling();
-      document.getElementById('pollMsg').textContent =
-        'Payment taking longer than expected — check your M-Pesa messages or enter your M-Pesa code below.';
-      toast('Payment timeout — contact support if you paid', 'info');
+    }catch(e){D.warn('[POLL:error] attempt', attempts, e.message);}
+    if(attempts>=MAX){
+      D.warn('[POLL:timeout] exhausted', MAX, 'attempts — giving up');
+      stopPolling();stopFirestoreListener();
+      document.getElementById('pollMsg').textContent='⏱ Taking longer than expected. Tap "I Already Paid" if you received your M-Pesa message.';
     }
-  }, 4000);
+  },4000);
 }
-function stopPolling(){if(pollInterval){clearInterval(pollInterval);pollInterval=null;}}
+function stopPolling(){
+  if(pollInterval){D.log('[POLL] clearing interval');clearInterval(pollInterval);pollInterval=null;}
+}
 
-async function onPaymentSuccess(sub) {
-  subscribed = true;
+// ── Manual check ────────────────────────────────────────────────
+async function manualCheck(){
+  const uid=currentUid||sessionStorage.getItem('srh_pay_uid');
+  const phone=sessionStorage.getItem('srh_pay_phone');
+  D.log('[MANUAL CHECK] uid:', uid, 'phone:', phone);
+  if(!uid){toast('Session expired — please refresh and try again','err');return;}
+  document.getElementById('pollMsg').textContent='Checking payment status…';
+  try{
+    const pp=phone?`&phone=${encodeURIComponent(phone)}`:'';
+    const url=`${BACKEND}/api/subscriptions/status?uid=${uid}${pp}`;
+    D.log('[MANUAL CHECK] fetching:', url);
+    const r=await fetch(url);
+    const d=await r.json();
+    D.log('[MANUAL CHECK] response:', d);
+    if(d.active){
+      D.ok('[MANUAL CHECK] ✅ active — calling onPaymentSuccess');
+      stopPolling();stopFirestoreListener();onPaymentSuccess(d);
+    } else {
+      D.warn('[MANUAL CHECK] not active yet — raw response:', d);
+      toast('Payment not confirmed yet — M-Pesa can take up to 60 seconds','info');
+      document.getElementById('pollMsg').textContent='Still waiting… please try again in a moment.';
+    }
+  }catch(e){D.err('[MANUAL CHECK] error:', e.message);toast('Check failed: '+e.message,'err');}
+}
+
+// ── onPaymentSuccess ────────────────────────────────────────────
+async function onPaymentSuccess(sub){
+  D.log('[SUCCESS] onPaymentSuccess called | subscribed guard:', subscribed, '| sub:', sub);
+  if(subscribed){D.warn('[SUCCESS] already subscribed — exiting early');return;}
+  subscribed=true;
+  D.ok('[SUCCESS] closing modal, showing sub banner, re-rendering resources');
   closeModal();
   showSubBanner(sub.expiresAt);
-  document.getElementById('authNotice').style.display = 'none';
-
-  // Refresh the Firebase ID token so downloadPremium() sends a fresh one
-  try {
-    if (currentUser) await currentUser.reload();
-  } catch (_) {}
-
+  document.getElementById('authNotice').style.display='none';
+  try{if(currentUser)await currentUser.reload();}catch(e){D.warn('[SUCCESS] user.reload() failed:', e.message);}
   renderResources();
-
-  // Clear session storage — no longer needed
   sessionStorage.removeItem('srh_pay_uid');
   sessionStorage.removeItem('srh_pay_phone');
-
-  toast('✅ Payment confirmed! Full access unlocked.', 'ok');
-  document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
+  toast('✅ Payment confirmed! Full access unlocked.','ok');
+  document.getElementById('resources').scrollIntoView({behavior:'smooth'});
 }
 
 function openWA(){window.open('https://wa.me/254704518130?text=Hi%20Bett%2C%20I%20am%20interested%20in%20the%20Smart%20Resource%20Hub%20School%20License.','_blank');}
 function goTo(id){document.querySelector(id)?.scrollIntoView({behavior:'smooth'});}
 
 function toast(msg,type='ok'){
-  const t=document.createElement('div');
-  t.className=`t ${type}`;
+  const t=document.createElement('div');t.className=`t ${type}`;
   t.innerHTML=`<span>${{ok:'✅',err:'❌',info:'ℹ️'}[type]||'ℹ️'}</span><span>${msg}</span>`;
   document.getElementById('tc').appendChild(t);
   setTimeout(()=>{t.style.animation='tout .25s ease forwards';setTimeout(()=>t.remove(),280);},3000);
 }
 
-document.getElementById('payModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.getElementById('payModal').addEventListener('click',function(e){if(e.target===this){D.log('[MODAL] backdrop click — closing');closeModal();}});
 document.getElementById('authModal').addEventListener('click',function(e){if(e.target===this)closeAuthModal();});
+
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"9a6fdd38ee454483a9aa3baf59e5691f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
+</html>
 </html>
