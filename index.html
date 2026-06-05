@@ -1139,14 +1139,31 @@ async function onPaymentSuccess(sub){
   D.log('[SUCCESS] onPaymentSuccess called | subscribed guard:', subscribed, '| sub:', sub);
   if(subscribed){D.warn('[SUCCESS] already subscribed — exiting early');return;}
   subscribed=true;
-  D.ok('[SUCCESS] closing modal, showing sub banner, re-rendering resources');
-  closeModal();
+
+  // ── Stop all listeners FIRST before touching the DOM ──
+  stopPolling();
+  stopFirestoreListener();
+
+  // ── Hide modal immediately ──
+  document.getElementById('payModal').classList.remove('open');
+  document.getElementById('stkStatus').style.display='none';
+  document.getElementById('payForm').style.display='';
+
+  // ── Reset STK button for next time ──
+  const stkBtn=document.getElementById('stkBtn');
+  if(stkBtn){stkBtn.disabled=false;stkBtn.innerHTML='📱 Send STK Push';}
+
+  // ── Update UI ──
   showSubBanner(sub.expiresAt);
   document.getElementById('authNotice').style.display='none';
-  try{if(currentUser)await currentUser.reload();}catch(e){D.warn('[SUCCESS] user.reload() failed:', e.message);}
+
+  try{if(currentUser)await currentUser.reload();}
+  catch(e){D.warn('[SUCCESS] user.reload() failed:', e.message);}
+
   renderResources();
   sessionStorage.removeItem('srh_pay_uid');
   sessionStorage.removeItem('srh_pay_phone');
+
   toast('✅ Payment confirmed! Full access unlocked.','ok');
   document.getElementById('resources').scrollIntoView({behavior:'smooth'});
 }
@@ -1169,3 +1186,4 @@ document.getElementById('authModal').addEventListener('click',function(e){if(e.t
 </body>
 </html>
 </html>
+  
