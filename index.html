@@ -1,4 +1,3 @@
-cat > /home/claude/index.html << 'ENDOFFILE'
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -338,7 +337,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
         <div class="form-row"><label class="form-label">Password <span class="req">*</span></label><input class="form-input" type="password" id="suPass" placeholder="Min 6 characters"></div>
         <div class="form-row">
           <label class="form-label">Role <span class="req">*</span></label>
-          <select class="form-select" id="suRole" onchange="onRoleChange()">
+          <select class="form-select" id="suRole">
             <option value="">&#x2014; Select your role &#x2014;</option>
             <option value="teacher">&#x1F34E; Teacher</option>
             <option value="hod">&#x1F4CB; Head of Department (HOD)</option>
@@ -597,10 +596,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 24p
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 <script>
-// ─────────────────────────────────────────────────────────────
-// PASTE THIS TO REPLACE THE ENTIRE <script> BLOCK IN index.html
-// (everything after the three Firebase <script src="..."> tags)
-// ─────────────────────────────────────────────────────────────
 firebase.initializeApp({
   apiKey:"AIzaSyDPZLbDio7OibE-FEXqFF1OdhM0qZc3yII",
   authDomain:"divine-treat-450709-b5.firebaseapp.com",
@@ -614,11 +609,11 @@ firebase.initializeApp({
 const db=firebase.firestore(),auth=firebase.auth(),BACKEND='https://cbe-y1zb.onrender.com';
 
 // ── DEBUG helper ──────────────────────────────────────────────
-const D = {
-  log:  (...a) => console.log('%c[SRH]',   'color:#3b82f6;font-weight:700', ...a),
-  ok:   (...a) => console.log('%c[SRH ✓]', 'color:#10b981;font-weight:700', ...a),
-  warn: (...a) => console.warn('%c[SRH ⚠]','color:#f59e0b;font-weight:700', ...a),
-  err:  (...a) => console.error('%c[SRH ✗]','color:#ef4444;font-weight:700', ...a),
+const D={
+  log:  (...a)=>console.log('%c[SRH]',  'color:#3b82f6;font-weight:700',...a),
+  ok:   (...a)=>console.log('%c[SRH ✓]','color:#10b981;font-weight:700',...a),
+  warn: (...a)=>console.warn('%c[SRH ⚠]','color:#f59e0b;font-weight:700',...a),
+  err:  (...a)=>console.error('%c[SRH ✗]','color:#ef4444;font-weight:700',...a),
 };
 
 const SUBJECTS_CBC=[
@@ -645,27 +640,37 @@ let allResources=[],activeFilters={grade:'all',type:'all'},subscribed=false,
     currentUid=null,currentUser=null,selectedPlan=null,paymentId=null,
     pollInterval=null,firestoreUnsub=null,
     pendingResourceId=null,currentSignupStep=1,
-    selectedSubjects=new Set(),teacherProfile=null;
+    selectedSubjects=new Set(),teacherProfile=null,
+    // Guard: prevents onPaymentSuccess firing twice (Firestore + REST race)
+    _paymentHandled=false;
 
-function toggleTheme(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';localStorage.setItem('cbe-theme',h.dataset.theme);}
+function toggleTheme(){
+  const h=document.documentElement;
+  h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';
+  localStorage.setItem('cbe-theme',h.dataset.theme);
+}
 (function(){const s=localStorage.getItem('cbe-theme');if(s)document.documentElement.dataset.theme=s;})();
 
 auth.onAuthStateChanged(async user=>{
-  D.log('[AUTH] state changed →', user ? `uid=${user.uid} email=${user.email} anon=${user.isAnonymous}` : 'signed out');
+  D.log('[AUTH] state changed →',user?`uid=${user.uid} email=${user.email} anon=${user.isAnonymous}`:'signed out');
   currentUser=user;currentUid=user?user.uid:null;
   updateAuthBtn();
   if(user){await checkSubscription(user.uid);await loadTeacherProfile(user.uid);}
   if(!subscribed){
     const sp=sessionStorage.getItem('srh_pay_phone'),su=sessionStorage.getItem('srh_pay_uid');
     if(sp){
-      D.log('[AUTH] session has pending payment — phone:', sp, 'uid:', su);
+      D.log('[AUTH] session has pending payment — phone:',sp,'uid:',su);
       try{
         const uid=(user&&currentUid)||su||'';
         const r=await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}&phone=${encodeURIComponent(sp)}`);
         const d=await r.json();
-        D.log('[AUTH] session payment check response:', d);
-        if(d.active){subscribed=true;showSubBanner(d.expiresAt);sessionStorage.removeItem('srh_pay_phone');sessionStorage.removeItem('srh_pay_uid');D.ok('[AUTH] subscription restored from session');}
-      }catch(e){D.err('[AUTH] session check failed:', e.message);}
+        D.log('[AUTH] session payment check response:',d);
+        if(d.active){
+          subscribed=true;showSubBanner(d.expiresAt);
+          sessionStorage.removeItem('srh_pay_phone');sessionStorage.removeItem('srh_pay_uid');
+          D.ok('[AUTH] subscription restored from session');
+        }
+      }catch(e){D.err('[AUTH] session check failed:',e.message);}
     }
   }
   loadResources();
@@ -673,21 +678,26 @@ auth.onAuthStateChanged(async user=>{
 
 function updateAuthBtn(){
   const btn=document.getElementById('authBtn');if(!btn)return;
-  if(currentUser&&!currentUser.isAnonymous){const n=currentUser.displayName||currentUser.email||'Account';btn.textContent='👤 '+n.split(' ')[0];btn.onclick=doSignOut;}
-  else{btn.textContent='Sign In';btn.onclick=handleAuthBtn;}
+  if(currentUser&&!currentUser.isAnonymous){
+    const n=currentUser.displayName||currentUser.email||'Account';
+    btn.textContent='👤 '+n.split(' ')[0];btn.onclick=doSignOut;
+  }else{btn.textContent='Sign In';btn.onclick=handleAuthBtn;}
 }
 function handleAuthBtn(){openAuthModal();}
 
 async function doSignOut(){
-  await auth.signOut();subscribed=false;currentUid=null;currentUser=null;teacherProfile=null;
+  await auth.signOut();
+  subscribed=false;currentUid=null;currentUser=null;teacherProfile=null;_paymentHandled=false;
   document.getElementById('subBanner').style.display='none';
   document.getElementById('teacherBadge').style.display='none';
   renderResources();toast('Signed out','info');updateAuthBtn();
 }
 
 async function loadTeacherProfile(uid){
-  try{const doc=await db.collection('users').doc(uid).get();if(doc.exists){teacherProfile=doc.data().teacherProfile||null;if(teacherProfile)renderTeacherBadge();}}
-  catch(e){D.warn('[PROFILE] load failed:', e.message);}
+  try{
+    const doc=await db.collection('users').doc(uid).get();
+    if(doc.exists){teacherProfile=doc.data().teacherProfile||null;if(teacherProfile)renderTeacherBadge();}
+  }catch(e){D.warn('[PROFILE] load failed:',e.message);}
 }
 
 function renderTeacherBadge(){
@@ -708,26 +718,28 @@ function renderTeacherBadge(){
     });
   }
 }
-function gradeLabel(g){const n=parseInt(g);if(n<=9)return 'Grade '+n;return{10:'Form 1',11:'Form 2',12:'Form 3',13:'Form 4'}[n]||('Gr '+n);}
+function gradeLabel(g){
+  const n=parseInt(g);if(n<=9)return'Grade '+n;
+  return{10:'Form 1',11:'Form 2',12:'Form 3',13:'Form 4'}[n]||('Gr '+n);
+}
 
 async function checkSubscription(uid){
-  D.log('[SUB] checking subscription for uid:', uid);
+  D.log('[SUB] checking subscription for uid:',uid);
   try{
     const snap=await db.collection('subscribers').doc(uid).get();
-    D.log('[SUB] Firestore doc exists:', snap.exists, snap.exists ? snap.data() : '(none)');
+    D.log('[SUB] Firestore doc exists:',snap.exists,snap.exists?snap.data():'(none)');
     if(snap.exists){
       const sub=snap.data();const exp=sub.expiresAt?new Date(sub.expiresAt):null;
       const active=exp?exp>new Date():!!sub.unlockedAt;
-      D.log('[SUB] Firestore → active:', active, 'expiresAt:', sub.expiresAt, 'now:', new Date().toISOString());
+      D.log('[SUB] Firestore → active:',active,'expiresAt:',sub.expiresAt);
       if(active){subscribed=true;showSubBanner(sub.expiresAt);return{active,expiresAt:sub.expiresAt,plan:sub.planKey};}
     }
     D.log('[SUB] falling back to REST status check');
     const r=await fetch(`${BACKEND}/api/subscriptions/status?uid=${uid}`);
-    const d=await r.json();
-    D.log('[SUB] REST response:', d);
+    const d=await r.json();D.log('[SUB] REST response:',d);
     if(d.active){subscribed=true;showSubBanner(d.expiresAt);}
     return d;
-  }catch(e){D.err('[SUB] checkSubscription error:', e.message);return{active:false};}
+  }catch(e){D.err('[SUB] checkSubscription error:',e.message);return{active:false};}
 }
 
 function showSubBanner(expiresAt){
@@ -767,7 +779,11 @@ function renderResources(){
     return gM&&tM&&qM;
   });
   if(teacherProfile&&teacherProfile.subjects&&teacherProfile.subjects.length){
-    filtered.sort((a,b)=>{const aM=teacherProfile.subjects.includes(a.subjectId);const bM=teacherProfile.subjects.includes(b.subjectId);return(bM?1:0)-(aM?1:0);});
+    filtered.sort((a,b)=>{
+      const aM=teacherProfile.subjects.includes(a.subjectId);
+      const bM=teacherProfile.subjects.includes(b.subjectId);
+      return(bM?1:0)-(aM?1:0);
+    });
   }
   document.getElementById('resCount').textContent=`Showing ${filtered.length} resource${filtered.length!==1?'s':''}`;
   if(!filtered.length){
@@ -778,7 +794,7 @@ function renderResources(){
   document.getElementById('resGrid').innerHTML=filtered.map(r=>{
     const canDl=r.free||subscribed;const icon=r.icon||'📄';
     const iTS=teacherProfile&&teacherProfile.subjects&&teacherProfile.subjects.includes(r.subjectId);
-    return`<div class="res-card${canDl?'':' locked'}" ${iTS?'style="border-color:rgba(139,92,246,.3)"':''}>
+    return`<div class="res-card${canDl?'':' locked'}"${iTS?' style="border-color:rgba(139,92,246,.3)"':''}>
       <div class="res-top">
         <div class="res-icon" style="background:${r.free?'rgba(16,185,129,.12)':'rgba(245,158,11,.1)'}">${icon}</div>
         <div class="res-badges">
@@ -796,7 +812,12 @@ function renderResources(){
           ${r.size?`<span>💾 ${r.size}</span>`:''}
           ${r.format?`<span style="background:var(--bg3);padding:1px 6px;border-radius:4px;font-size:10px;color:var(--text2)">${r.format}</span>`:''}
         </div>
-        ${r.free?`<button class="dl-btn dl-free" onclick="downloadFreeById('${r.id}')">⬇ Download</button>`:canDl?`<button class="dl-btn dl-free" onclick="downloadPremium('${r.id}','${(r.title||'').replace(/'/g,"\\'")}')">⬇ Download</button>`:`<button class="dl-btn" style="background:var(--gold);color:#fff;cursor:pointer" onclick="promptUpgrade('${r.id}')">⭐ Unlock</button>`}
+        ${r.free
+          ?`<button class="dl-btn dl-free" onclick="downloadFreeById('${r.id}')">⬇ Download</button>`
+          :canDl
+            ?`<button class="dl-btn dl-free" onclick="downloadPremium('${r.id}','${(r.title||'').replace(/'/g,"\\'")}')">⬇ Download</button>`
+            :`<button class="dl-btn" style="background:var(--gold);color:#fff;cursor:pointer" onclick="promptUpgrade('${r.id}')">⭐ Unlock</button>`
+        }
       </div>
     </div>`;
   }).join('');
@@ -810,41 +831,85 @@ function setFilter(key,val,el){
 }
 function filterRes(){renderResources();}
 
-function downloadFreeById(id){const r=window._resMap[id];if(!r){toast('Resource not found','err');return;}downloadFree(id,r.fileUrl||'',r.title||'');}
+function downloadFreeById(id){
+  const r=window._resMap[id];if(!r){toast('Resource not found','err');return;}
+  downloadFree(id,r.fileUrl||'',r.title||'');
+}
 
 async function downloadFree(resourceId,fileUrl,title){
-  if(fileUrl&&fileUrl.startsWith('http')&&!fileUrl.includes('r2.cloudflarestorage')){window.open(fileUrl,'_blank');toast(`⬇ Downloading: ${(title||'').substring(0,40)}`,'ok');return;}
+  if(fileUrl&&fileUrl.startsWith('http')&&!fileUrl.includes('r2.cloudflarestorage')){
+    window.open(fileUrl,'_blank');toast(`⬇ Downloading: ${(title||'').substring(0,40)}`,'ok');return;
+  }
   try{
     toast('Preparing your branded copy…','info');
-    // ── FIX: closing quote was misplaced (was: ||') now: ||'') ──
     const dn=(currentUser&&!currentUser.isAnonymous)?(currentUser.displayName||currentUser.email||''):'';
     const dp=document.getElementById('payPhone')?.value?.trim()||'';
-    const res=await fetch(`${BACKEND}/api/resources/download-free`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({resourceId,downloaderName:dn,downloaderPhone:dp})});
-    if(!res.ok){const d=await res.json().catch(()=>({}));if(d.code==='SUBSCRIPTION_REQUIRED'){toast('This resource requires a subscription','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;}throw new Error(d.error||`Server error ${res.status}`);}
+    const res=await fetch(`${BACKEND}/api/resources/download-free`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({resourceId,downloaderName:dn,downloaderPhone:dp})
+    });
+    if(!res.ok){
+      const d=await res.json().catch(()=>({}));
+      if(d.code==='SUBSCRIPTION_REQUIRED'){toast('This resource requires a subscription','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;}
+      throw new Error(d.error||`Server error ${res.status}`);
+    }
     const blob=await res.blob();const blobUrl=URL.createObjectURL(blob);
     const a=document.createElement('a');a.href=blobUrl;a.download=(title||'resource').replace(/[^\w\s-]/g,'')+'.pdf';
-    document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
     toast(`⬇ Downloaded: ${(title||'').substring(0,40)}`,'ok');
   }catch(e){toast('Download failed — please try again','err');}
 }
 
 async function downloadPremium(resourceId,title){
-  if(!currentUid||(currentUser&&currentUser.isAnonymous)){pendingResourceId=resourceId;openAuthModal('premium');toast('Sign in to download premium resources','info');return;}
+  if(!currentUid||(currentUser&&currentUser.isAnonymous)){
+    pendingResourceId=resourceId;openAuthModal('premium');toast('Sign in to download premium resources','info');return;
+  }
   try{
     toast('Preparing your branded copy…','info');
     const token=await currentUser.getIdToken();
-    const res=await fetch(`${BACKEND}/api/resources/download`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},body:JSON.stringify({resourceId})});
-    if(!res.ok){const d=await res.json().catch(()=>({}));if(d.code==='SUBSCRIPTION_REQUIRED'){toast('Subscription required — choose a plan below','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;}throw new Error(d.error||`Server error ${res.status}`);}
+    const res=await fetch(`${BACKEND}/api/resources/download`,{
+      method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},
+      body:JSON.stringify({resourceId})
+    });
+    if(!res.ok){
+      const d=await res.json().catch(()=>({}));
+      if(d.code==='SUBSCRIPTION_REQUIRED'){toast('Subscription required — choose a plan below','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});return;}
+      throw new Error(d.error||`Server error ${res.status}`);
+    }
     const blob=await res.blob();const blobUrl=URL.createObjectURL(blob);
     const a=document.createElement('a');a.href=blobUrl;a.download=(title||'resource').replace(/[^\w\s-]/g,'')+'.pdf';
-    document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(blobUrl);a.remove();},2000);
     toast(`⬇ Downloaded: ${(title||'').substring(0,40)}`,'ok');
   }catch(e){toast(`Download failed: ${e.message}`,'err');}
 }
 
-function promptUpgrade(id){pendingResourceId=id;toast('Subscribe to unlock this premium resource','info');document.getElementById('plans').scrollIntoView({behavior:'smooth'});}
+function promptUpgrade(id) {
+  pendingResourceId = id;
+  
+  // If not logged in, open auth modal first
+  if (!currentUser || currentUser.isAnonymous) {
+    openAuthModal('premium');
+    toast('Create a free account to subscribe', 'info');
+    return;
+  }
+  
+  // Already signed in — go straight to plans
+  toast('Subscribe to unlock this premium resource', 'info');
+  document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
+}
 
-function openAuthModal(ctx){document.getElementById('authModal').classList.add('open');document.getElementById('authModalTitle').textContent=ctx==='premium'?'Sign in to download':'Sign in';}
+function openAuthModal(ctx){
+  document.getElementById('authModal').classList.add('open');
+  document.getElementById('authModalTitle').textContent = ctx === 'premium' ? 'Sign up to subscribe' : 'Sign in';
+  
+  // Default to signup tab for premium/unlock flow
+  if (ctx === 'premium') {
+    switchTab('signup');
+  }
+}
+
 function closeAuthModal(){document.getElementById('authModal').classList.remove('open');pendingResourceId=null;}
 
 function switchTab(tab){
@@ -864,8 +929,10 @@ function showSignupStep(step){
 }
 function goToStep(n){showSignupStep(n);}
 function goToStep2(){
-  const name=document.getElementById('suName').value.trim(),email=document.getElementById('suEmail').value.trim(),
-        pass=document.getElementById('suPass').value,role=document.getElementById('suRole').value,
+  const name=document.getElementById('suName').value.trim(),
+        email=document.getElementById('suEmail').value.trim(),
+        pass=document.getElementById('suPass').value,
+        role=document.getElementById('suRole').value,
         school=document.getElementById('suSchool').value.trim();
   if(!name){toast('Enter your full name','err');return;}
   if(!email){toast('Enter your email address','err');return;}
@@ -874,7 +941,6 @@ function goToStep2(){
   if(!school){toast('Enter your school name','err');return;}
   showSignupStep(2);
 }
-function onRoleChange(){}
 function onGradeChange(){
   const from=parseInt(document.getElementById('gradeFrom').value),to=parseInt(document.getElementById('gradeTo').value);
   const ib=document.getElementById('gradeInfoBox'),ln=document.getElementById('subjectLimitNote');
@@ -893,7 +959,8 @@ function onGradeChange(){
 function getMaxSubjects(from,to){return to>=10?2:3;}
 function goToStep3(){
   const from=parseInt(document.getElementById('gradeFrom').value),to=parseInt(document.getElementById('gradeTo').value);
-  if(!from){toast('Select your starting grade','err');return;}if(!to){toast('Select your ending grade','err');return;}
+  if(!from){toast('Select your starting grade','err');return;}
+  if(!to){toast('Select your ending grade','err');return;}
   if(to<from){toast('"To" grade must be ≥ "From" grade','err');return;}
   selectedSubjects.clear();buildSubjectGrid(from,to);showSignupStep(3);
 }
@@ -931,10 +998,15 @@ function updateSubjectCounter(maxSubj){
   fill.className='subj-counter-fill'+(count>=maxSubj?' full':'');
 }
 async function doSignUp(){
-  const from=parseInt(document.getElementById('gradeFrom').value),to=parseInt(document.getElementById('gradeTo').value),maxSubj=getMaxSubjects(from,to);
+  const from=parseInt(document.getElementById('gradeFrom').value),
+        to=parseInt(document.getElementById('gradeTo').value),
+        maxSubj=getMaxSubjects(from,to);
   if(selectedSubjects.size===0){toast('Please select at least 1 subject','err');return;}
-  const name=document.getElementById('suName').value.trim(),email=document.getElementById('suEmail').value.trim(),
-        pass=document.getElementById('suPass').value,role=document.getElementById('suRole').value,school=document.getElementById('suSchool').value.trim();
+  const name=document.getElementById('suName').value.trim(),
+        email=document.getElementById('suEmail').value.trim(),
+        pass=document.getElementById('suPass').value,
+        role=document.getElementById('suRole').value,
+        school=document.getElementById('suSchool').value.trim();
   const btn=document.getElementById('suBtn');btn.disabled=true;btn.innerHTML='<div class="spin" style="width:14px;height:14px;border-width:2px"></div> Creating…';
   try{
     const cred=await auth.createUserWithEmailAndPassword(email,pass);
@@ -943,6 +1015,13 @@ async function doSignUp(){
     await db.collection('users').doc(cred.user.uid).set(profile);
     teacherProfile=profile.teacherProfile;renderTeacherBadge();
     closeAuthModal();toast('✅ Account created! Welcome, '+name.split(' ')[0],'ok');renderResources();
+    // NEW: if they came from an unlock button, scroll to plans
+if (pendingResourceId) {
+  setTimeout(() => {
+    document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
+    toast('Now choose a plan to unlock your resource', 'info');
+  }, 500);
+}
   }catch(e){toast('Sign up failed: '+e.message.replace('Firebase: ',''),'err');}
   finally{btn.disabled=false;btn.innerHTML='✅ Create Account';}
 }
@@ -950,8 +1029,17 @@ async function doSignIn(){
   const email=document.getElementById('siEmail').value.trim(),pass=document.getElementById('siPass').value;
   if(!email||!pass){toast('Enter email and password','err');return;}
   const btn=document.getElementById('siBtn');btn.disabled=true;btn.textContent='Signing in…';
-  try{await auth.signInWithEmailAndPassword(email,pass);closeAuthModal();toast('✅ Signed in!','ok');}
-  catch(e){toast('Sign in failed: '+e.message.replace('Firebase: ',''),'err');}
+  try{
+    await auth.signInWithEmailAndPassword(email,pass);
+    closeAuthModal();
+    toast('✅ Signed in!','ok');
+    if(pendingResourceId){
+      setTimeout(()=>{
+        document.getElementById('plans').scrollIntoView({behavior:'smooth'});
+        toast('Now choose a plan to unlock your resource','info');
+      },500);
+    }
+  }catch(e){toast('Sign in failed: '+e.message.replace('Firebase: ',''),'err');}
   finally{btn.disabled=false;btn.textContent='Sign In';}
 }
 async function doGoogleSignIn(){
@@ -960,7 +1048,14 @@ async function doGoogleSignIn(){
     const cred=await auth.signInWithPopup(provider);
     const doc=await db.collection('users').doc(cred.user.uid).get();
     closeAuthModal();toast('✅ Signed in with Google!','ok');
-    if(!doc.exists||!doc.data().teacherProfile)setTimeout(()=>{switchTab('signup');openAuthModal();showSignupStep(2);toast('Please complete your teacher profile','info');},400);
+    if (pendingResourceId) {
+  setTimeout(() => {
+    document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
+    toast('Now choose a plan to unlock your resource', 'info');
+  }, 500);
+}
+    if(!doc.exists||!doc.data().teacherProfile)
+      setTimeout(()=>{switchTab('signup');openAuthModal();showSignupStep(2);toast('Please complete your teacher profile','info');},400);
   }catch(e){toast('Google sign in failed: '+e.message.replace('Firebase: ',''),'err');}
 }
 
@@ -978,101 +1073,127 @@ function openPlan(p){
   document.getElementById('payModal').classList.add('open');
   document.getElementById('payForm').style.display='';
   document.getElementById('stkStatus').style.display='none';
-  D.log('[PLAN] modal opened for plan:', p, pl);
+  D.log('[PLAN] modal opened for plan:',p,pl);
 }
 
 function closeModal(){
-  D.log('[MODAL] closeModal() called — stopping poll + listener');
+  D.log('[MODAL] closeModal() — stopping poll + listener');
   document.getElementById('payModal').classList.remove('open');
   stopPolling();
   stopFirestoreListener();
+  // Reset button in case they re-open
+  const btn=document.getElementById('stkBtn');
+  if(btn){btn.disabled=false;btn.innerHTML='📱 Send STK Push';}
 }
 
 function resetModal(){
   stopPolling();stopFirestoreListener();
+  _paymentHandled=false;
   document.getElementById('payForm').style.display='';
   document.getElementById('stkStatus').style.display='none';
-  document.getElementById('stkBtn').disabled=false;
-  document.getElementById('stkBtn').innerHTML='📱 Send STK Push';
+  const btn=document.getElementById('stkBtn');
+  if(btn){btn.disabled=false;btn.innerHTML='📱 Send STK Push';}
   D.log('[MODAL] reset to form view');
 }
 
-// ── triggerSTK ─────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
+// triggerSTK — FIXED: attach Firestore listener BEFORE the fetch
+// so a fast M-Pesa callback that writes Firestore before the
+// request returns is still caught by the onSnapshot handler.
+// ─────────────────────────────────────────────────────────────
 async function triggerSTK(){
   const phone=document.getElementById('payPhone').value.trim();
   const name=document.getElementById('payName').value.trim();
   if(!phone||phone.length<9){toast('Enter a valid phone number','err');return;}
   if(!name){toast('Enter your full name','err');return;}
+
   let dp=phone.replace(/\D/g,'');
   if(dp.startsWith('0'))dp='254'+dp.substring(1);
   const formatted=dp.replace(/(\d{3})(\d{3})(\d{3})(\d{3})/,'$1 $2 $3 $4');
+
   const btn=document.getElementById('stkBtn');
   btn.disabled=true;btn.innerHTML='<div class="spin" style="width:14px;height:14px;border-width:2px"></div> Sending…';
+
   try{
+    // ── 1. Ensure we have a UID (anonymous if needed) ──────────
     let uid=currentUid;
     if(!uid){
       D.log('[STK] no uid — signing in anonymously');
       const cred=await auth.signInAnonymously();
       uid=cred.user.uid;currentUid=uid;currentUser=cred.user;
-        startFirestoreListener(uid);
-      D.ok('[STK] anonymous uid:', uid);
+      D.ok('[STK] anonymous uid:',uid);
     }
-    D.log('[STK:init] uid:', uid, '| plan:', selectedPlan, '| planKey:', PLANS[selectedPlan].key, '| phone:', dp, '| name:', name);
+
+    // ── 2. Persist payment context for page-reload recovery ───
     sessionStorage.setItem('srh_pay_uid',uid);
     sessionStorage.setItem('srh_pay_phone',dp);
+    _paymentHandled=false;
 
+    // ── 3. Attach Firestore listener BEFORE sending STK ────────
+    //    This guarantees we catch the snapshot even if the
+    //    M-Pesa callback fires and Firestore is written before
+    //    our fetch() call resolves.
+    D.log('[STK] attaching Firestore listener PRE-fetch for uid:',uid);
+    startFirestoreListener(uid);
+
+    // ── 4. Send STK push to backend ────────────────────────────
     const payload={uid,planKey:PLANS[selectedPlan].key,phone:dp,name};
-    D.log('[STK:fetch] POST', `${BACKEND}/api/subscriptions/initiate`, payload);
+    D.log('[STK:fetch] POST',`${BACKEND}/api/subscriptions/initiate`,payload);
     const res=await fetch(`${BACKEND}/api/subscriptions/initiate`,{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify(payload),
     });
     const data=await res.json();
-    D.log('[STK:response] status:', res.status, 'body:', data);
+    D.log('[STK:response] status:',res.status,'body:',data);
 
     if(!res.ok){
-      D.err('[STK:error] server rejected initiation:', data);
-      throw new Error(data.error||'Initiation failed');
+      // Detach listener if initiation failed — no point keeping it
+      stopFirestoreListener();
+      throw new Error(data.error||'Payment initiation failed');
     }
-    paymentId=data.paymentId;
-    D.ok('[STK] paymentId:', paymentId, '— showing waiting screen');
 
+    paymentId=data.paymentId;
+    D.ok('[STK] paymentId:',paymentId,'— showing waiting screen');
+
+    // ── 5. Show waiting UI ─────────────────────────────────────
     document.getElementById('payForm').style.display='none';
     document.getElementById('stkStatus').style.display='block';
     document.getElementById('stkPhone').textContent=formatted;
     document.getElementById('pollMsg').textContent='Waiting for payment confirmation…';
     toast('📱 STK Push sent to '+formatted,'info');
 
-    // Start both listeners in parallel
-    D.log('[STK] starting Firestore listener + REST poll for uid:', uid, 'phone:', dp);
-    startFirestoreListener(uid);
+    // ── 6. Start REST polling as fallback ──────────────────────
+    //    (Firestore listener already running from step 3)
+    D.log('[STK] starting REST poll fallback for uid:',uid,'phone:',dp);
     startPolling(uid,dp);
+
   }catch(e){
-    D.err('[STK:catch]', e.message, e);
+    D.err('[STK:catch]',e.message,e);
     toast('Payment error: '+e.message,'err');
     btn.disabled=false;btn.innerHTML='📱 Send STK Push';
   }
 }
 
 // ── Firestore real-time listener ────────────────────────────────
+// On first snapshot we immediately evaluate the current state —
+// this handles the race where Firestore was already written
+// before the listener attached.
 function startFirestoreListener(uid){
   if(firestoreUnsub){D.warn('[FIRESTORE] detaching existing listener before re-attach');firestoreUnsub();firestoreUnsub=null;}
-  D.log('[FIRESTORE] attaching listener on subscribers/', uid);
+  D.log('[FIRESTORE] attaching listener on subscribers/',uid);
   firestoreUnsub=db.collection('subscribers').doc(uid)
     .onSnapshot(snap=>{
-      D.log('[FIRESTORE:snapshot] exists:', snap.exists, '| data:', snap.exists ? snap.data() : '(empty)');
+      D.log('[FIRESTORE:snapshot] exists:',snap.exists,'| data:',snap.exists?snap.data():'(empty)');
       if(!snap.exists){D.log('[FIRESTORE:snapshot] doc does not exist yet — waiting');return;}
       const sub=snap.data();
       const exp=sub.expiresAt?new Date(sub.expiresAt):null;
       const active=exp?exp>new Date():!!sub.unlockedAt;
-      D.log('[FIRESTORE:snapshot] active:', active, '| expiresAt:', sub.expiresAt, '| subscribed guard:', subscribed);
-      if(active){
-        if(subscribed){D.warn('[FIRESTORE:snapshot] already subscribed — skipping duplicate fire');return;}
-        D.ok('[FIRESTORE:snapshot] ✅ payment confirmed via Firestore — calling onPaymentSuccess');
-        stopPolling();stopFirestoreListener();
+      D.log('[FIRESTORE:snapshot] active:',active,'| expiresAt:',sub.expiresAt,'| _paymentHandled:',_paymentHandled);
+      if(active&&!_paymentHandled){
+        D.ok('[FIRESTORE:snapshot] ✅ payment confirmed — calling onPaymentSuccess');
         onPaymentSuccess(sub);
       }
-    },err=>{D.err('[FIRESTORE:error]', err.code, err.message);});
+    },err=>{D.err('[FIRESTORE:error]',err.code,err.message);});
 }
 function stopFirestoreListener(){
   if(firestoreUnsub){D.log('[FIRESTORE] detaching listener');firestoreUnsub();firestoreUnsub=null;}
@@ -1081,25 +1202,26 @@ function stopFirestoreListener(){
 // ── REST polling fallback ───────────────────────────────────────
 function startPolling(uid,phone){
   let attempts=0,MAX=60;
-  D.log('[POLL] starting — uid:', uid, 'phone:', phone, 'max attempts:', MAX);
+  D.log('[POLL] starting — uid:',uid,'phone:',phone,'max attempts:',MAX);
   pollInterval=setInterval(async()=>{
+    if(_paymentHandled){stopPolling();return;} // Firestore already confirmed
     attempts++;
-    D.log('[POLL:attempt]', attempts, '/', MAX);
+    D.log('[POLL:attempt]',attempts,'/',MAX);
     try{
       const pp=phone?`&phone=${encodeURIComponent(phone)}`:'';
       const url=`${BACKEND}/api/subscriptions/status?uid=${uid}${pp}`;
       const r=await fetch(url);
       const d=await r.json();
-      D.log('[POLL:response]', attempts, d);
-      if(d.active){
-        D.ok('[POLL] ✅ payment confirmed via REST polling — attempt', attempts);
+      D.log('[POLL:response]',attempts,d);
+      if(d.active&&!_paymentHandled){
+        D.ok('[POLL] ✅ payment confirmed via REST — attempt',attempts);
         stopPolling();stopFirestoreListener();
         onPaymentSuccess(d);
         return;
       }
-    }catch(e){D.warn('[POLL:error] attempt', attempts, e.message);}
+    }catch(e){D.warn('[POLL:error] attempt',attempts,e.message);}
     if(attempts>=MAX){
-      D.warn('[POLL:timeout] exhausted', MAX, 'attempts — giving up');
+      D.warn('[POLL:timeout] exhausted',MAX,'attempts');
       stopPolling();stopFirestoreListener();
       document.getElementById('pollMsg').textContent='⏱ Taking longer than expected. Tap "I Already Paid" if you received your M-Pesa message.';
     }
@@ -1113,52 +1235,54 @@ function stopPolling(){
 async function manualCheck(){
   const uid=currentUid||sessionStorage.getItem('srh_pay_uid');
   const phone=sessionStorage.getItem('srh_pay_phone');
-  D.log('[MANUAL CHECK] uid:', uid, 'phone:', phone);
+  D.log('[MANUAL CHECK] uid:',uid,'phone:',phone);
   if(!uid){toast('Session expired — please refresh and try again','err');return;}
   document.getElementById('pollMsg').textContent='Checking payment status…';
   try{
     const pp=phone?`&phone=${encodeURIComponent(phone)}`:'';
     const url=`${BACKEND}/api/subscriptions/status?uid=${uid}${pp}`;
-    D.log('[MANUAL CHECK] fetching:', url);
-    const r=await fetch(url);
-    const d=await r.json();
-    D.log('[MANUAL CHECK] response:', d);
-    if(d.active){
+    D.log('[MANUAL CHECK] fetching:',url);
+    const r=await fetch(url);const d=await r.json();
+    D.log('[MANUAL CHECK] response:',d);
+    if(d.active&&!_paymentHandled){
       D.ok('[MANUAL CHECK] ✅ active — calling onPaymentSuccess');
       stopPolling();stopFirestoreListener();onPaymentSuccess(d);
-    } else {
-      D.warn('[MANUAL CHECK] not active yet — raw response:', d);
+    }else if(_paymentHandled){
+      D.warn('[MANUAL CHECK] already handled');
+    }else{
+      D.warn('[MANUAL CHECK] not active yet');
       toast('Payment not confirmed yet — M-Pesa can take up to 60 seconds','info');
       document.getElementById('pollMsg').textContent='Still waiting… please try again in a moment.';
     }
-  }catch(e){D.err('[MANUAL CHECK] error:', e.message);toast('Check failed: '+e.message,'err');}
+  }catch(e){D.err('[MANUAL CHECK] error:',e.message);toast('Check failed: '+e.message,'err');}
 }
 
-// ── onPaymentSuccess ────────────────────────────────────────────
-async function onPaymentSuccess(sub){
-  D.log('[SUCCESS] onPaymentSuccess called | subscribed guard:', subscribed, '| sub:', sub);
-  if(subscribed){D.warn('[SUCCESS] already subscribed — exiting early');return;}
+// ── onPaymentSuccess — atomic guard prevents double-fire ────────
+function onPaymentSuccess(sub){
+  // Atomic guard: Firestore snapshot + REST poll may both resolve
+  if(_paymentHandled){D.warn('[SUCCESS] already handled — skipping duplicate');return;}
+  _paymentHandled=true;
   subscribed=true;
 
-  // ── Stop all listeners FIRST before touching the DOM ──
+  D.ok('[SUCCESS] payment confirmed | sub:',sub);
+
+  // Stop all background listeners first
   stopPolling();
   stopFirestoreListener();
 
-  // ── Hide modal immediately ──
+  // Close modal and reset UI
   document.getElementById('payModal').classList.remove('open');
   document.getElementById('stkStatus').style.display='none';
   document.getElementById('payForm').style.display='';
-
-  // ── Reset STK button for next time ──
   const stkBtn=document.getElementById('stkBtn');
   if(stkBtn){stkBtn.disabled=false;stkBtn.innerHTML='📱 Send STK Push';}
 
-  // ── Update UI ──
+  // Update subscription UI
   showSubBanner(sub.expiresAt);
   document.getElementById('authNotice').style.display='none';
 
-  try{if(currentUser)await currentUser.reload();}
-  catch(e){D.warn('[SUCCESS] user.reload() failed:', e.message);}
+  // Reload user token silently (don't block on failure)
+  if(currentUser)currentUser.reload().catch(e=>D.warn('[SUCCESS] user.reload() failed:',e.message));
 
   renderResources();
   sessionStorage.removeItem('srh_pay_uid');
@@ -1180,10 +1304,7 @@ function toast(msg,type='ok'){
 
 document.getElementById('payModal').addEventListener('click',function(e){if(e.target===this){D.log('[MODAL] backdrop click — closing');closeModal();}});
 document.getElementById('authModal').addEventListener('click',function(e){if(e.target===this)closeAuthModal();});
-
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"9a6fdd38ee454483a9aa3baf59e5691f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
-</html>
-  
